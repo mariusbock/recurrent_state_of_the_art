@@ -1,0 +1,688 @@
+Applied settings: 
+Namespace(adj_lr=False, batch_norm=False, batch_size=100, conv_block_type='normal', dataset='opportunity_drill', dilation=1, drop_prob=0.5, early_stopping=False, epochs=30, es_patience=10, filter_width=7, gpu='cuda:0', include_null=True, learning_rate=0.0001, logging=True, loss='cross_entropy', lr_decay=0.9, lr_scheduler='step_lr', lr_step=10, name='2x128_seed_1', nb_conv_blocks=2, nb_filters=64, nb_layers_lstm=2, nb_units_lstm=128, network='deepconvlstm', no_lstm=False, optimizer='adam', pool_kernel_width=2, pool_type='max', pooling=False, pred_type='gestures', print_counts=False, print_freq=100, reduce_layer=False, reduce_layer_output=8, save_analysis=True, save_checkpoints=False, save_test_preds=False, seed=1, shuffling=False, smoothing=0.0, sw_length=30.0, sw_overlap=60, sw_unit='units', valid_epoch='best', verbose=False, weight_decay=1e-06, weighted=True, weights_init='xavier_normal')
+Loading data...
+Processing dataset files ...
+Full dataset with size: | X (224752, 114) | y (224752,) | 
+ ..from file data/opportunity_drill_data.csv
+
+CALCULATING CROSS-PARTICIPANT SCORES USING LOSO CV.
+
+
+ VALIDATING FOR SUBJECT 1 OF 4
++----------------------------+------------+
+|          Modules           | Parameters |
++----------------------------+------------+
+| conv_blocks.0.conv1.weight |    448     |
+|  conv_blocks.0.conv1.bias  |     64     |
+| conv_blocks.0.conv2.weight |   28672    |
+|  conv_blocks.0.conv2.bias  |     64     |
+| conv_blocks.1.conv1.weight |   28672    |
+|  conv_blocks.1.conv1.bias  |     64     |
+| conv_blocks.1.conv2.weight |   28672    |
+|  conv_blocks.1.conv2.bias  |     64     |
+| lstm_layers.0.weight_ih_l0 |  3702784   |
+| lstm_layers.0.weight_hh_l0 |   65536    |
+|  lstm_layers.0.bias_ih_l0  |    512     |
+|  lstm_layers.0.bias_hh_l0  |    512     |
+| lstm_layers.1.weight_ih_l0 |   65536    |
+| lstm_layers.1.weight_hh_l0 |   65536    |
+|  lstm_layers.1.bias_ih_l0  |    512     |
+|  lstm_layers.1.bias_hh_l0  |    512     |
+|         fc.weight          |    2304    |
+|          fc.bias           |     18     |
++----------------------------+------------+
+Total Params: 3990482
+Applied weighted class weights: 
+tensor([0.1329, 1.5437, 1.5052, 1.5286, 1.4312, 1.9643, 2.2258, 1.8531, 2.0953,
+        2.4326, 3.2468, 2.7001, 3.0104, 2.4176, 2.3042, 1.3095, 0.4392, 1.9025])
+EPOCH: 1/30 
+Train Loss: 2.6529 Train Acc (M): 0.0675 Train Prc (M): 0.1803 Train Rcl (M): 0.1380 Train F1 (M): 0.1171 Train Acc (W): 0.1776 Train Prc (W): 0.3355 Train Rcl (W): 0.2890 Train F1 (W): 0.2825 
+Valid Loss: 2.5473 Valid Acc (M): 0.1223 Valid Prc (M): 0.2707 Valid Rcl (M): 0.2363 Valid F1 (M): 0.1862 Valid Acc (W): 0.2795 Valid Prc (W): 0.4427 Valid Rcl (W): 0.4533 Valid F1 (W): 0.3946
+Performance improved... (0.0->0.18616560777392366)
+EPOCH: 2/30 
+Train Loss: 2.0693 Train Acc (M): 0.1512 Train Prc (M): 0.2657 Train Rcl (M): 0.2980 Train F1 (M): 0.2461 Train Acc (W): 0.2473 Train Prc (W): 0.4369 Train Rcl (W): 0.3808 Train F1 (W): 0.3780 
+Valid Loss: 1.7714 Valid Acc (M): 0.2542 Valid Prc (M): 0.4845 Valid Rcl (M): 0.4245 Valid F1 (M): 0.3735 Valid Acc (W): 0.3802 Valid Prc (W): 0.6069 Valid Rcl (W): 0.5297 Valid F1 (W): 0.5194
+Performance improved... (0.18616560777392366->0.3735493292335341)
+EPOCH: 3/30 
+Train Loss: 1.5570 Train Acc (M): 0.2393 Train Prc (M): 0.3508 Train Rcl (M): 0.4437 Train F1 (M): 0.3717 Train Acc (W): 0.3083 Train Prc (W): 0.5453 Train Rcl (W): 0.4534 Train F1 (W): 0.4579 
+Valid Loss: 1.3939 Valid Acc (M): 0.4283 Valid Prc (M): 0.5770 Valid Rcl (M): 0.6632 Valid F1 (M): 0.5757 Valid Acc (W): 0.4733 Valid Prc (W): 0.7042 Valid Rcl (W): 0.6291 Valid F1 (W): 0.6248
+Performance improved... (0.3735493292335341->0.5756640468613171)
+EPOCH: 4/30 
+Train Loss: 1.2008 Train Acc (M): 0.3348 Train Prc (M): 0.4401 Train Rcl (M): 0.5868 Train F1 (M): 0.4877 Train Acc (W): 0.3767 Train Prc (W): 0.6324 Train Rcl (W): 0.5376 Train F1 (W): 0.5343 
+Valid Loss: 1.2365 Valid Acc (M): 0.4172 Valid Prc (M): 0.6142 Valid Rcl (M): 0.6332 Valid F1 (M): 0.5773 Valid Acc (W): 0.4586 Valid Prc (W): 0.6929 Valid Rcl (W): 0.6166 Valid F1 (W): 0.6219
+Performance improved... (0.5756640468613171->0.5773421043049882)
+EPOCH: 5/30 
+Train Loss: 1.0603 Train Acc (M): 0.3679 Train Prc (M): 0.4726 Train Rcl (M): 0.6338 Train F1 (M): 0.5253 Train Acc (W): 0.3930 Train Prc (W): 0.6537 Train Rcl (W): 0.5617 Train F1 (W): 0.5510 
+Valid Loss: 1.1522 Valid Acc (M): 0.3563 Valid Prc (M): 0.5290 Valid Rcl (M): 0.5992 Valid F1 (M): 0.5023 Valid Acc (W): 0.4019 Valid Prc (W): 0.6650 Valid Rcl (W): 0.5679 Valid F1 (W): 0.5551
+EPOCH: 6/30 
+Train Loss: 0.9155 Train Acc (M): 0.3963 Train Prc (M): 0.5003 Train Rcl (M): 0.6792 Train F1 (M): 0.5577 Train Acc (W): 0.3966 Train Prc (W): 0.6721 Train Rcl (W): 0.5731 Train F1 (W): 0.5550 
+Valid Loss: 0.9156 Valid Acc (M): 0.5149 Valid Prc (M): 0.6687 Valid Rcl (M): 0.7472 Valid F1 (M): 0.6756 Valid Acc (W): 0.4921 Valid Prc (W): 0.7021 Valid Rcl (W): 0.6586 Valid F1 (W): 0.6556
+Performance improved... (0.5773421043049882->0.6755544037837384)
+EPOCH: 7/30 
+Train Loss: 0.8540 Train Acc (M): 0.4215 Train Prc (M): 0.5265 Train Rcl (M): 0.7021 Train F1 (M): 0.5842 Train Acc (W): 0.4321 Train Prc (W): 0.6978 Train Rcl (W): 0.6038 Train F1 (W): 0.5919 
+Valid Loss: 1.0157 Valid Acc (M): 0.4056 Valid Prc (M): 0.5955 Valid Rcl (M): 0.6420 Valid F1 (M): 0.5636 Valid Acc (W): 0.4318 Valid Prc (W): 0.6793 Valid Rcl (W): 0.6066 Valid F1 (W): 0.5917
+EPOCH: 8/30 
+Train Loss: 0.8304 Train Acc (M): 0.4290 Train Prc (M): 0.5298 Train Rcl (M): 0.7110 Train F1 (M): 0.5915 Train Acc (W): 0.4291 Train Prc (W): 0.6875 Train Rcl (W): 0.6050 Train F1 (W): 0.5887 
+Valid Loss: 0.9636 Valid Acc (M): 0.4748 Valid Prc (M): 0.6459 Valid Rcl (M): 0.6884 Valid F1 (M): 0.6366 Valid Acc (W): 0.4785 Valid Prc (W): 0.6765 Valid Rcl (W): 0.6485 Valid F1 (W): 0.6392
+EPOCH: 9/30 
+Train Loss: 0.8186 Train Acc (M): 0.4242 Train Prc (M): 0.5253 Train Rcl (M): 0.7057 Train F1 (M): 0.5852 Train Acc (W): 0.4343 Train Prc (W): 0.6980 Train Rcl (W): 0.6054 Train F1 (W): 0.5929 
+Valid Loss: 0.7895 Valid Acc (M): 0.5307 Valid Prc (M): 0.6754 Valid Rcl (M): 0.7650 Valid F1 (M): 0.6874 Valid Acc (W): 0.5037 Valid Prc (W): 0.7269 Valid Rcl (W): 0.6734 Valid F1 (W): 0.6620
+Performance improved... (0.6755544037837384->0.6873995294070264)
+EPOCH: 10/30 
+Train Loss: 0.7702 Train Acc (M): 0.4401 Train Prc (M): 0.5433 Train Rcl (M): 0.7216 Train F1 (M): 0.6031 Train Acc (W): 0.4413 Train Prc (W): 0.6990 Train Rcl (W): 0.6146 Train F1 (W): 0.6014 
+Valid Loss: 1.3063 Valid Acc (M): 0.3332 Valid Prc (M): 0.5562 Valid Rcl (M): 0.5611 Valid F1 (M): 0.4755 Valid Acc (W): 0.3887 Valid Prc (W): 0.6297 Valid Rcl (W): 0.5616 Valid F1 (W): 0.5447
+EPOCH: 11/30 
+Train Loss: 0.7269 Train Acc (M): 0.4644 Train Prc (M): 0.5632 Train Rcl (M): 0.7518 Train F1 (M): 0.6288 Train Acc (W): 0.4492 Train Prc (W): 0.7045 Train Rcl (W): 0.6258 Train F1 (W): 0.6103 
+Valid Loss: 1.2820 Valid Acc (M): 0.3440 Valid Prc (M): 0.5387 Valid Rcl (M): 0.5104 Valid F1 (M): 0.4766 Valid Acc (W): 0.4266 Valid Prc (W): 0.6039 Valid Rcl (W): 0.5990 Valid F1 (W): 0.5741
+EPOCH: 12/30 
+Train Loss: 0.7683 Train Acc (M): 0.4503 Train Prc (M): 0.5517 Train Rcl (M): 0.7394 Train F1 (M): 0.6139 Train Acc (W): 0.4403 Train Prc (W): 0.7037 Train Rcl (W): 0.6146 Train F1 (W): 0.5998 
+Valid Loss: 0.9169 Valid Acc (M): 0.4218 Valid Prc (M): 0.5454 Valid Rcl (M): 0.6618 Valid F1 (M): 0.5754 Valid Acc (W): 0.4511 Valid Prc (W): 0.6681 Valid Rcl (W): 0.6204 Valid F1 (W): 0.6069
+EPOCH: 13/30 
+Train Loss: 0.6805 Train Acc (M): 0.4765 Train Prc (M): 0.5744 Train Rcl (M): 0.7622 Train F1 (M): 0.6386 Train Acc (W): 0.4726 Train Prc (W): 0.7280 Train Rcl (W): 0.6443 Train F1 (W): 0.6315 
+Valid Loss: 0.9963 Valid Acc (M): 0.4012 Valid Prc (M): 0.5237 Valid Rcl (M): 0.6119 Valid F1 (M): 0.5433 Valid Acc (W): 0.4584 Valid Prc (W): 0.6367 Valid Rcl (W): 0.6208 Valid F1 (W): 0.6089
+EPOCH: 14/30 
+Train Loss: 0.6053 Train Acc (M): 0.5014 Train Prc (M): 0.5926 Train Rcl (M): 0.7916 Train F1 (M): 0.6619 Train Acc (W): 0.4842 Train Prc (W): 0.7405 Train Rcl (W): 0.6571 Train F1 (W): 0.6416 
+Valid Loss: 1.1442 Valid Acc (M): 0.3999 Valid Prc (M): 0.5586 Valid Rcl (M): 0.5883 Valid F1 (M): 0.5445 Valid Acc (W): 0.4692 Valid Prc (W): 0.6474 Valid Rcl (W): 0.6326 Valid F1 (W): 0.6211
+EPOCH: 15/30 
+Train Loss: 0.6233 Train Acc (M): 0.4980 Train Prc (M): 0.5924 Train Rcl (M): 0.7873 Train F1 (M): 0.6596 Train Acc (W): 0.4756 Train Prc (W): 0.7313 Train Rcl (W): 0.6495 Train F1 (W): 0.6343 
+Valid Loss: 0.9430 Valid Acc (M): 0.4414 Valid Prc (M): 0.6276 Valid Rcl (M): 0.6640 Valid F1 (M): 0.5938 Valid Acc (W): 0.4810 Valid Prc (W): 0.7087 Valid Rcl (W): 0.6442 Valid F1 (W): 0.6356
+EPOCH: 16/30 
+Train Loss: 0.5456 Train Acc (M): 0.5285 Train Prc (M): 0.6166 Train Rcl (M): 0.8128 Train F1 (M): 0.6870 Train Acc (W): 0.5093 Train Prc (W): 0.7550 Train Rcl (W): 0.6788 Train F1 (W): 0.6665 
+Valid Loss: 0.9266 Valid Acc (M): 0.4468 Valid Prc (M): 0.6157 Valid Rcl (M): 0.6673 Valid F1 (M): 0.6029 Valid Acc (W): 0.4802 Valid Prc (W): 0.6901 Valid Rcl (W): 0.6474 Valid F1 (W): 0.6366
+EPOCH: 17/30 
+Train Loss: 0.5410 Train Acc (M): 0.5216 Train Prc (M): 0.6120 Train Rcl (M): 0.8031 Train F1 (M): 0.6804 Train Acc (W): 0.5128 Train Prc (W): 0.7558 Train Rcl (W): 0.6805 Train F1 (W): 0.6698 
+Valid Loss: 1.0217 Valid Acc (M): 0.4251 Valid Prc (M): 0.5713 Valid Rcl (M): 0.6158 Valid F1 (M): 0.5734 Valid Acc (W): 0.4948 Valid Prc (W): 0.6678 Valid Rcl (W): 0.6544 Valid F1 (W): 0.6458
+EPOCH: 18/30 
+Train Loss: 0.6075 Train Acc (M): 0.5010 Train Prc (M): 0.5947 Train Rcl (M): 0.7865 Train F1 (M): 0.6612 Train Acc (W): 0.4909 Train Prc (W): 0.7407 Train Rcl (W): 0.6612 Train F1 (W): 0.6485 
+Valid Loss: 1.0986 Valid Acc (M): 0.3827 Valid Prc (M): 0.5008 Valid Rcl (M): 0.6051 Valid F1 (M): 0.5167 Valid Acc (W): 0.4638 Valid Prc (W): 0.6654 Valid Rcl (W): 0.6184 Valid F1 (W): 0.6091
+EPOCH: 19/30 
+Train Loss: 0.5542 Train Acc (M): 0.5242 Train Prc (M): 0.6131 Train Rcl (M): 0.8036 Train F1 (M): 0.6825 Train Acc (W): 0.5188 Train Prc (W): 0.7555 Train Rcl (W): 0.6848 Train F1 (W): 0.6752 
+Valid Loss: 0.9740 Valid Acc (M): 0.4218 Valid Prc (M): 0.5615 Valid Rcl (M): 0.6598 Valid F1 (M): 0.5680 Valid Acc (W): 0.4776 Valid Prc (W): 0.6926 Valid Rcl (W): 0.6424 Valid F1 (W): 0.6289
+EPOCH: 20/30 
+Train Loss: 0.5091 Train Acc (M): 0.5427 Train Prc (M): 0.6288 Train Rcl (M): 0.8202 Train F1 (M): 0.6988 Train Acc (W): 0.5285 Train Prc (W): 0.7618 Train Rcl (W): 0.6931 Train F1 (W): 0.6836 
+Valid Loss: 1.2021 Valid Acc (M): 0.3731 Valid Prc (M): 0.5476 Valid Rcl (M): 0.6010 Valid F1 (M): 0.5139 Valid Acc (W): 0.4502 Valid Prc (W): 0.6776 Valid Rcl (W): 0.6138 Valid F1 (W): 0.5991
+EPOCH: 21/30 
+Train Loss: 0.5195 Train Acc (M): 0.5475 Train Prc (M): 0.6336 Train Rcl (M): 0.8257 Train F1 (M): 0.7032 Train Acc (W): 0.5285 Train Prc (W): 0.7673 Train Rcl (W): 0.6947 Train F1 (W): 0.6837 
+Valid Loss: 1.0555 Valid Acc (M): 0.4278 Valid Prc (M): 0.5878 Valid Rcl (M): 0.6590 Valid F1 (M): 0.5783 Valid Acc (W): 0.4671 Valid Prc (W): 0.6820 Valid Rcl (W): 0.6407 Valid F1 (W): 0.6221
+EPOCH: 22/30 
+Train Loss: 0.4899 Train Acc (M): 0.5568 Train Prc (M): 0.6407 Train Rcl (M): 0.8321 Train F1 (M): 0.7106 Train Acc (W): 0.5385 Train Prc (W): 0.7718 Train Rcl (W): 0.7013 Train F1 (W): 0.6921 
+Valid Loss: 1.0564 Valid Acc (M): 0.4170 Valid Prc (M): 0.5872 Valid Rcl (M): 0.6429 Valid F1 (M): 0.5675 Valid Acc (W): 0.4404 Valid Prc (W): 0.6793 Valid Rcl (W): 0.6145 Valid F1 (W): 0.5975
+EPOCH: 23/30 
+Train Loss: 0.4693 Train Acc (M): 0.5656 Train Prc (M): 0.6470 Train Rcl (M): 0.8414 Train F1 (M): 0.7185 Train Acc (W): 0.5463 Train Prc (W): 0.7778 Train Rcl (W): 0.7090 Train F1 (W): 0.6991 
+Valid Loss: 1.0022 Valid Acc (M): 0.4440 Valid Prc (M): 0.6018 Valid Rcl (M): 0.6797 Valid F1 (M): 0.5972 Valid Acc (W): 0.4863 Valid Prc (W): 0.7113 Valid Rcl (W): 0.6507 Valid F1 (W): 0.6402
+EPOCH: 24/30 
+Train Loss: 0.4463 Train Acc (M): 0.5808 Train Prc (M): 0.6609 Train Rcl (M): 0.8502 Train F1 (M): 0.7310 Train Acc (W): 0.5632 Train Prc (W): 0.7874 Train Rcl (W): 0.7218 Train F1 (W): 0.7138 
+Valid Loss: 0.9702 Valid Acc (M): 0.4661 Valid Prc (M): 0.6183 Valid Rcl (M): 0.6942 Valid F1 (M): 0.6183 Valid Acc (W): 0.4991 Valid Prc (W): 0.7302 Valid Rcl (W): 0.6645 Valid F1 (W): 0.6537
+EPOCH: 25/30 
+Train Loss: 0.4683 Train Acc (M): 0.5695 Train Prc (M): 0.6523 Train Rcl (M): 0.8370 Train F1 (M): 0.7213 Train Acc (W): 0.5589 Train Prc (W): 0.7795 Train Rcl (W): 0.7167 Train F1 (W): 0.7105 
+Valid Loss: 0.9699 Valid Acc (M): 0.4545 Valid Prc (M): 0.6401 Valid Rcl (M): 0.6647 Valid F1 (M): 0.6076 Valid Acc (W): 0.5135 Valid Prc (W): 0.7115 Valid Rcl (W): 0.6747 Valid F1 (W): 0.6656
+EPOCH: 26/30 
+Train Loss: 0.4376 Train Acc (M): 0.5811 Train Prc (M): 0.6599 Train Rcl (M): 0.8493 Train F1 (M): 0.7313 Train Acc (W): 0.5630 Train Prc (W): 0.7838 Train Rcl (W): 0.7225 Train F1 (W): 0.7141 
+Valid Loss: 0.8349 Valid Acc (M): 0.4636 Valid Prc (M): 0.6305 Valid Rcl (M): 0.7054 Valid F1 (M): 0.6184 Valid Acc (W): 0.4888 Valid Prc (W): 0.7158 Valid Rcl (W): 0.6619 Valid F1 (W): 0.6440
+EPOCH: 27/30 
+Train Loss: 0.4469 Train Acc (M): 0.5798 Train Prc (M): 0.6590 Train Rcl (M): 0.8484 Train F1 (M): 0.7305 Train Acc (W): 0.5647 Train Prc (W): 0.7849 Train Rcl (W): 0.7237 Train F1 (W): 0.7155 
+Valid Loss: 1.0160 Valid Acc (M): 0.4550 Valid Prc (M): 0.5830 Valid Rcl (M): 0.6648 Valid F1 (M): 0.6041 Valid Acc (W): 0.5203 Valid Prc (W): 0.6950 Valid Rcl (W): 0.6791 Valid F1 (W): 0.6689
+EPOCH: 28/30 
+Train Loss: 0.5501 Train Acc (M): 0.5410 Train Prc (M): 0.6298 Train Rcl (M): 0.8128 Train F1 (M): 0.6968 Train Acc (W): 0.5381 Train Prc (W): 0.7681 Train Rcl (W): 0.6992 Train F1 (W): 0.6919 
+Valid Loss: 1.1030 Valid Acc (M): 0.3976 Valid Prc (M): 0.5365 Valid Rcl (M): 0.6309 Valid F1 (M): 0.5474 Valid Acc (W): 0.4365 Valid Prc (W): 0.6799 Valid Rcl (W): 0.6083 Valid F1 (W): 0.5918
+EPOCH: 29/30 
+Train Loss: 0.5047 Train Acc (M): 0.5528 Train Prc (M): 0.6375 Train Rcl (M): 0.8247 Train F1 (M): 0.7074 Train Acc (W): 0.5452 Train Prc (W): 0.7687 Train Rcl (W): 0.7059 Train F1 (W): 0.6985 
+Valid Loss: 0.8043 Valid Acc (M): 0.4689 Valid Prc (M): 0.6118 Valid Rcl (M): 0.7161 Valid F1 (M): 0.6299 Valid Acc (W): 0.4517 Valid Prc (W): 0.6944 Valid Rcl (W): 0.6332 Valid F1 (W): 0.6129
+EPOCH: 30/30 
+Train Loss: 0.4570 Train Acc (M): 0.5732 Train Prc (M): 0.6528 Train Rcl (M): 0.8465 Train F1 (M): 0.7252 Train Acc (W): 0.5537 Train Prc (W): 0.7765 Train Rcl (W): 0.7153 Train F1 (W): 0.7060 
+Valid Loss: 0.8137 Valid Acc (M): 0.4721 Valid Prc (M): 0.6120 Valid Rcl (M): 0.7102 Valid F1 (M): 0.6276 Valid Acc (W): 0.5076 Valid Prc (W): 0.7262 Valid Rcl (W): 0.6723 Valid F1 (W): 0.6625
+SUBJECT 1 VALIDATION RESULTS: 
+Accuracy: [0.39680851 0.48958333 0.56551724 0.53046595 0.71291866 0.54098361
+ 0.36029412 0.39912281 0.68639053 0.60958904 0.57419355 0.4965035
+ 0.4965035  0.5034965  0.54621849 0.59437751 0.68372093 0.36526946]
+Precision: [0.80998914 0.50719424 0.5795053  0.60162602 0.79255319 0.62264151
+ 0.85964912 0.53846154 0.82857143 0.68992248 0.63571429 0.7244898
+ 0.63963964 0.94736842 0.54852321 0.74       0.71970624 0.37082067]
+Recall: [0.43753666 0.93377483 0.95906433 0.81767956 0.87647059 0.80487805
+ 0.3828125  0.60666667 0.8        0.83962264 0.85576923 0.61206897
+ 0.68932039 0.51798561 0.99236641 0.75126904 0.9318542  0.96062992]
+F1: [0.56816451 0.65734266 0.72246696 0.69320843 0.83240223 0.70212766
+ 0.52972973 0.57053292 0.81403509 0.75744681 0.7295082  0.6635514
+ 0.6635514  0.66976744 0.70652174 0.74559194 0.8121547  0.53508772]
+
+ VALIDATING FOR SUBJECT 2 OF 4
++----------------------------+------------+
+|          Modules           | Parameters |
++----------------------------+------------+
+| conv_blocks.0.conv1.weight |    448     |
+|  conv_blocks.0.conv1.bias  |     64     |
+| conv_blocks.0.conv2.weight |   28672    |
+|  conv_blocks.0.conv2.bias  |     64     |
+| conv_blocks.1.conv1.weight |   28672    |
+|  conv_blocks.1.conv1.bias  |     64     |
+| conv_blocks.1.conv2.weight |   28672    |
+|  conv_blocks.1.conv2.bias  |     64     |
+| lstm_layers.0.weight_ih_l0 |  3702784   |
+| lstm_layers.0.weight_hh_l0 |   65536    |
+|  lstm_layers.0.bias_ih_l0  |    512     |
+|  lstm_layers.0.bias_hh_l0  |    512     |
+| lstm_layers.1.weight_ih_l0 |   65536    |
+| lstm_layers.1.weight_hh_l0 |   65536    |
+|  lstm_layers.1.bias_ih_l0  |    512     |
+|  lstm_layers.1.bias_hh_l0  |    512     |
+|         fc.weight          |    2304    |
+|          fc.bias           |     18     |
++----------------------------+------------+
+Total Params: 3990482
+Applied weighted class weights: 
+tensor([0.1286, 1.6249, 1.5133, 1.5427, 1.5367, 2.0650, 2.2026, 1.9725, 2.0922,
+        2.5662, 2.8730, 2.5334, 2.7156, 2.1784, 2.2786, 1.5133, 0.4602, 2.0177])
+EPOCH: 1/30 
+Train Loss: 2.6725 Train Acc (M): 0.0864 Train Prc (M): 0.1583 Train Rcl (M): 0.1649 Train F1 (M): 0.1471 Train Acc (W): 0.2149 Train Prc (W): 0.3349 Train Rcl (W): 0.3411 Train F1 (W): 0.3296 
+Valid Loss: 2.4533 Valid Acc (M): 0.1433 Valid Prc (M): 0.2508 Valid Rcl (M): 0.2374 Valid F1 (M): 0.2097 Valid Acc (W): 0.3080 Valid Prc (W): 0.4204 Valid Rcl (W): 0.4993 Valid F1 (W): 0.4196
+Performance improved... (0.0->0.2097201809773325)
+EPOCH: 2/30 
+Train Loss: 2.0756 Train Acc (M): 0.1692 Train Prc (M): 0.2869 Train Rcl (M): 0.3409 Train F1 (M): 0.2751 Train Acc (W): 0.2451 Train Prc (W): 0.4468 Train Rcl (W): 0.3859 Train F1 (W): 0.3794 
+Valid Loss: 1.7269 Valid Acc (M): 0.2884 Valid Prc (M): 0.4565 Valid Rcl (M): 0.4342 Valid F1 (M): 0.4014 Valid Acc (W): 0.4171 Valid Prc (W): 0.6053 Valid Rcl (W): 0.5578 Valid F1 (W): 0.5519
+Performance improved... (0.2097201809773325->0.4013868807846344)
+EPOCH: 3/30 
+Train Loss: 1.4819 Train Acc (M): 0.2653 Train Prc (M): 0.3782 Train Rcl (M): 0.5087 Train F1 (M): 0.4114 Train Acc (W): 0.2916 Train Prc (W): 0.5491 Train Rcl (W): 0.4514 Train F1 (W): 0.4441 
+Valid Loss: 1.4859 Valid Acc (M): 0.2868 Valid Prc (M): 0.4620 Valid Rcl (M): 0.4838 Valid F1 (M): 0.4120 Valid Acc (W): 0.4040 Valid Prc (W): 0.6345 Valid Rcl (W): 0.5438 Valid F1 (W): 0.5443
+Performance improved... (0.4013868807846344->0.4120014103357323)
+EPOCH: 4/30 
+Train Loss: 1.1867 Train Acc (M): 0.3350 Train Prc (M): 0.4403 Train Rcl (M): 0.6159 Train F1 (M): 0.4940 Train Acc (W): 0.3243 Train Prc (W): 0.6019 Train Rcl (W): 0.5016 Train F1 (W): 0.4788 
+Valid Loss: 1.3730 Valid Acc (M): 0.3259 Valid Prc (M): 0.5284 Valid Rcl (M): 0.5172 Valid F1 (M): 0.4633 Valid Acc (W): 0.4212 Valid Prc (W): 0.6514 Valid Rcl (W): 0.5776 Valid F1 (W): 0.5702
+Performance improved... (0.4120014103357323->0.4632983817893618)
+EPOCH: 5/30 
+Train Loss: 1.1133 Train Acc (M): 0.3471 Train Prc (M): 0.4534 Train Rcl (M): 0.6386 Train F1 (M): 0.5088 Train Acc (W): 0.3202 Train Prc (W): 0.6091 Train Rcl (W): 0.5033 Train F1 (W): 0.4732 
+Valid Loss: 1.3467 Valid Acc (M): 0.3141 Valid Prc (M): 0.5245 Valid Rcl (M): 0.4762 Valid F1 (M): 0.4523 Valid Acc (W): 0.4152 Valid Prc (W): 0.6176 Valid Rcl (W): 0.5668 Valid F1 (W): 0.5621
+EPOCH: 6/30 
+Train Loss: 1.0309 Train Acc (M): 0.3739 Train Prc (M): 0.4789 Train Rcl (M): 0.6680 Train F1 (M): 0.5372 Train Acc (W): 0.3461 Train Prc (W): 0.6368 Train Rcl (W): 0.5300 Train F1 (W): 0.5026 
+Valid Loss: 1.2097 Valid Acc (M): 0.3711 Valid Prc (M): 0.5292 Valid Rcl (M): 0.5566 Valid F1 (M): 0.5074 Valid Acc (W): 0.4573 Valid Prc (W): 0.6451 Valid Rcl (W): 0.6160 Valid F1 (W): 0.6056
+Performance improved... (0.4632983817893618->0.5074044176877954)
+EPOCH: 7/30 
+Train Loss: 1.0242 Train Acc (M): 0.3600 Train Prc (M): 0.4644 Train Rcl (M): 0.6601 Train F1 (M): 0.5224 Train Acc (W): 0.3266 Train Prc (W): 0.6254 Train Rcl (W): 0.5134 Train F1 (W): 0.4801 
+Valid Loss: 1.1267 Valid Acc (M): 0.3904 Valid Prc (M): 0.5977 Valid Rcl (M): 0.5927 Valid F1 (M): 0.5346 Valid Acc (W): 0.4636 Valid Prc (W): 0.6864 Valid Rcl (W): 0.6095 Valid F1 (W): 0.6146
+Performance improved... (0.5074044176877954->0.5345577565787862)
+EPOCH: 8/30 
+Train Loss: 0.9558 Train Acc (M): 0.3831 Train Prc (M): 0.4866 Train Rcl (M): 0.6798 Train F1 (M): 0.5469 Train Acc (W): 0.3450 Train Prc (W): 0.6339 Train Rcl (W): 0.5325 Train F1 (W): 0.5006 
+Valid Loss: 1.0702 Valid Acc (M): 0.3829 Valid Prc (M): 0.5658 Valid Rcl (M): 0.5709 Valid F1 (M): 0.5225 Valid Acc (W): 0.4562 Valid Prc (W): 0.6645 Valid Rcl (W): 0.6000 Valid F1 (W): 0.6033
+EPOCH: 9/30 
+Train Loss: 0.9113 Train Acc (M): 0.3935 Train Prc (M): 0.4965 Train Rcl (M): 0.6920 Train F1 (M): 0.5581 Train Acc (W): 0.3607 Train Prc (W): 0.6521 Train Rcl (W): 0.5470 Train F1 (W): 0.5187 
+Valid Loss: 1.2039 Valid Acc (M): 0.3676 Valid Prc (M): 0.5182 Valid Rcl (M): 0.5148 Valid F1 (M): 0.4815 Valid Acc (W): 0.4747 Valid Prc (W): 0.6728 Valid Rcl (W): 0.6066 Valid F1 (W): 0.6086
+EPOCH: 10/30 
+Train Loss: 0.8331 Train Acc (M): 0.4182 Train Prc (M): 0.5190 Train Rcl (M): 0.7236 Train F1 (M): 0.5842 Train Acc (W): 0.3777 Train Prc (W): 0.6717 Train Rcl (W): 0.5670 Train F1 (W): 0.5369 
+Valid Loss: 1.0353 Valid Acc (M): 0.3940 Valid Prc (M): 0.5588 Valid Rcl (M): 0.5858 Valid F1 (M): 0.5324 Valid Acc (W): 0.4662 Valid Prc (W): 0.6699 Valid Rcl (W): 0.6178 Valid F1 (W): 0.6125
+EPOCH: 11/30 
+Train Loss: 0.8004 Train Acc (M): 0.4207 Train Prc (M): 0.5194 Train Rcl (M): 0.7267 Train F1 (M): 0.5862 Train Acc (W): 0.3787 Train Prc (W): 0.6689 Train Rcl (W): 0.5673 Train F1 (W): 0.5380 
+Valid Loss: 0.9773 Valid Acc (M): 0.4154 Valid Prc (M): 0.5886 Valid Rcl (M): 0.6036 Valid F1 (M): 0.5543 Valid Acc (W): 0.4931 Valid Prc (W): 0.6950 Valid Rcl (W): 0.6362 Valid F1 (W): 0.6347
+Performance improved... (0.5345577565787862->0.5542770761371717)
+EPOCH: 12/30 
+Train Loss: 0.7488 Train Acc (M): 0.4420 Train Prc (M): 0.5386 Train Rcl (M): 0.7476 Train F1 (M): 0.6069 Train Acc (W): 0.4031 Train Prc (W): 0.6934 Train Rcl (W): 0.5898 Train F1 (W): 0.5634 
+Valid Loss: 0.9643 Valid Acc (M): 0.4016 Valid Prc (M): 0.5676 Valid Rcl (M): 0.5847 Valid F1 (M): 0.5394 Valid Acc (W): 0.4691 Valid Prc (W): 0.6750 Valid Rcl (W): 0.6192 Valid F1 (W): 0.6131
+EPOCH: 13/30 
+Train Loss: 0.7408 Train Acc (M): 0.4493 Train Prc (M): 0.5481 Train Rcl (M): 0.7472 Train F1 (M): 0.6133 Train Acc (W): 0.4257 Train Prc (W): 0.7068 Train Rcl (W): 0.6067 Train F1 (W): 0.5873 
+Valid Loss: 0.9763 Valid Acc (M): 0.3984 Valid Prc (M): 0.5695 Valid Rcl (M): 0.5892 Valid F1 (M): 0.5442 Valid Acc (W): 0.4619 Valid Prc (W): 0.6742 Valid Rcl (W): 0.6156 Valid F1 (W): 0.6120
+EPOCH: 14/30 
+Train Loss: 0.7600 Train Acc (M): 0.4412 Train Prc (M): 0.5404 Train Rcl (M): 0.7456 Train F1 (M): 0.6066 Train Acc (W): 0.4056 Train Prc (W): 0.6984 Train Rcl (W): 0.5916 Train F1 (W): 0.5669 
+Valid Loss: 0.8859 Valid Acc (M): 0.4211 Valid Prc (M): 0.5482 Valid Rcl (M): 0.6163 Valid F1 (M): 0.5569 Valid Acc (W): 0.4959 Valid Prc (W): 0.7013 Valid Rcl (W): 0.6396 Valid F1 (W): 0.6374
+Performance improved... (0.5542770761371717->0.5569133834811639)
+EPOCH: 15/30 
+Train Loss: 0.7243 Train Acc (M): 0.4500 Train Prc (M): 0.5468 Train Rcl (M): 0.7531 Train F1 (M): 0.6149 Train Acc (W): 0.4129 Train Prc (W): 0.6990 Train Rcl (W): 0.5987 Train F1 (W): 0.5741 
+Valid Loss: 1.0606 Valid Acc (M): 0.3959 Valid Prc (M): 0.5676 Valid Rcl (M): 0.5466 Valid F1 (M): 0.5249 Valid Acc (W): 0.5064 Valid Prc (W): 0.6833 Valid Rcl (W): 0.6401 Valid F1 (W): 0.6417
+EPOCH: 16/30 
+Train Loss: 0.6793 Train Acc (M): 0.4756 Train Prc (M): 0.5710 Train Rcl (M): 0.7735 Train F1 (M): 0.6390 Train Acc (W): 0.4410 Train Prc (W): 0.7146 Train Rcl (W): 0.6226 Train F1 (W): 0.6026 
+Valid Loss: 1.0654 Valid Acc (M): 0.3760 Valid Prc (M): 0.5346 Valid Rcl (M): 0.5517 Valid F1 (M): 0.5070 Valid Acc (W): 0.4820 Valid Prc (W): 0.6665 Valid Rcl (W): 0.6192 Valid F1 (W): 0.6203
+EPOCH: 17/30 
+Train Loss: 0.6509 Train Acc (M): 0.4806 Train Prc (M): 0.5744 Train Rcl (M): 0.7830 Train F1 (M): 0.6446 Train Acc (W): 0.4395 Train Prc (W): 0.7163 Train Rcl (W): 0.6232 Train F1 (W): 0.6010 
+Valid Loss: 1.1048 Valid Acc (M): 0.3754 Valid Prc (M): 0.5447 Valid Rcl (M): 0.5256 Valid F1 (M): 0.5087 Valid Acc (W): 0.4808 Valid Prc (W): 0.6477 Valid Rcl (W): 0.6281 Valid F1 (W): 0.6230
+EPOCH: 18/30 
+Train Loss: 0.6009 Train Acc (M): 0.5061 Train Prc (M): 0.5956 Train Rcl (M): 0.8038 Train F1 (M): 0.6663 Train Acc (W): 0.4604 Train Prc (W): 0.7332 Train Rcl (W): 0.6405 Train F1 (W): 0.6207 
+Valid Loss: 1.1690 Valid Acc (M): 0.3716 Valid Prc (M): 0.5539 Valid Rcl (M): 0.5167 Valid F1 (M): 0.5066 Valid Acc (W): 0.4865 Valid Prc (W): 0.6683 Valid Rcl (W): 0.6284 Valid F1 (W): 0.6293
+EPOCH: 19/30 
+Train Loss: 0.6465 Train Acc (M): 0.4919 Train Prc (M): 0.5865 Train Rcl (M): 0.7845 Train F1 (M): 0.6549 Train Acc (W): 0.4555 Train Prc (W): 0.7168 Train Rcl (W): 0.6348 Train F1 (W): 0.6179 
+Valid Loss: 0.8751 Valid Acc (M): 0.4203 Valid Prc (M): 0.5437 Valid Rcl (M): 0.5984 Valid F1 (M): 0.5500 Valid Acc (W): 0.5156 Valid Prc (W): 0.6910 Valid Rcl (W): 0.6536 Valid F1 (W): 0.6533
+EPOCH: 20/30 
+Train Loss: 0.8490 Train Acc (M): 0.4251 Train Prc (M): 0.5312 Train Rcl (M): 0.7125 Train F1 (M): 0.5909 Train Acc (W): 0.4085 Train Prc (W): 0.6862 Train Rcl (W): 0.5895 Train F1 (W): 0.5720 
+Valid Loss: 1.0128 Valid Acc (M): 0.3863 Valid Prc (M): 0.5620 Valid Rcl (M): 0.5457 Valid F1 (M): 0.5224 Valid Acc (W): 0.4987 Valid Prc (W): 0.6844 Valid Rcl (W): 0.6392 Valid F1 (W): 0.6402
+EPOCH: 21/30 
+Train Loss: 0.6872 Train Acc (M): 0.4701 Train Prc (M): 0.5672 Train Rcl (M): 0.7671 Train F1 (M): 0.6354 Train Acc (W): 0.4344 Train Prc (W): 0.7025 Train Rcl (W): 0.6169 Train F1 (W): 0.5975 
+Valid Loss: 0.9267 Valid Acc (M): 0.4134 Valid Prc (M): 0.5733 Valid Rcl (M): 0.5870 Valid F1 (M): 0.5548 Valid Acc (W): 0.5104 Valid Prc (W): 0.6990 Valid Rcl (W): 0.6518 Valid F1 (W): 0.6545
+EPOCH: 22/30 
+Train Loss: 0.6459 Train Acc (M): 0.4774 Train Prc (M): 0.5732 Train Rcl (M): 0.7809 Train F1 (M): 0.6421 Train Acc (W): 0.4362 Train Prc (W): 0.7185 Train Rcl (W): 0.6205 Train F1 (W): 0.5983 
+Valid Loss: 1.0953 Valid Acc (M): 0.3753 Valid Prc (M): 0.5422 Valid Rcl (M): 0.5343 Valid F1 (M): 0.5136 Valid Acc (W): 0.4906 Valid Prc (W): 0.6663 Valid Rcl (W): 0.6308 Valid F1 (W): 0.6334
+EPOCH: 23/30 
+Train Loss: 0.5937 Train Acc (M): 0.5043 Train Prc (M): 0.5953 Train Rcl (M): 0.7987 Train F1 (M): 0.6661 Train Acc (W): 0.4715 Train Prc (W): 0.7376 Train Rcl (W): 0.6498 Train F1 (W): 0.6336 
+Valid Loss: 1.1434 Valid Acc (M): 0.3762 Valid Prc (M): 0.5749 Valid Rcl (M): 0.5186 Valid F1 (M): 0.5174 Valid Acc (W): 0.4943 Valid Prc (W): 0.6722 Valid Rcl (W): 0.6371 Valid F1 (W): 0.6383
+EPOCH: 24/30 
+Train Loss: 0.5646 Train Acc (M): 0.5164 Train Prc (M): 0.6042 Train Rcl (M): 0.8088 Train F1 (M): 0.6769 Train Acc (W): 0.4843 Train Prc (W): 0.7412 Train Rcl (W): 0.6606 Train F1 (W): 0.6455 
+Valid Loss: 1.2620 Valid Acc (M): 0.3605 Valid Prc (M): 0.5275 Valid Rcl (M): 0.5039 Valid F1 (M): 0.4856 Valid Acc (W): 0.4859 Valid Prc (W): 0.6529 Valid Rcl (W): 0.6259 Valid F1 (W): 0.6210
+EPOCH: 25/30 
+Train Loss: 0.5592 Train Acc (M): 0.5217 Train Prc (M): 0.6095 Train Rcl (M): 0.8101 Train F1 (M): 0.6812 Train Acc (W): 0.4910 Train Prc (W): 0.7403 Train Rcl (W): 0.6648 Train F1 (W): 0.6516 
+Valid Loss: 1.0058 Valid Acc (M): 0.3912 Valid Prc (M): 0.5590 Valid Rcl (M): 0.5598 Valid F1 (M): 0.5317 Valid Acc (W): 0.4992 Valid Prc (W): 0.6766 Valid Rcl (W): 0.6434 Valid F1 (W): 0.6425
+EPOCH: 26/30 
+Train Loss: 0.6012 Train Acc (M): 0.5039 Train Prc (M): 0.5950 Train Rcl (M): 0.7989 Train F1 (M): 0.6657 Train Acc (W): 0.4673 Train Prc (W): 0.7335 Train Rcl (W): 0.6470 Train F1 (W): 0.6295 
+Valid Loss: 1.1683 Valid Acc (M): 0.3478 Valid Prc (M): 0.5355 Valid Rcl (M): 0.5065 Valid F1 (M): 0.4868 Valid Acc (W): 0.4553 Valid Prc (W): 0.6421 Valid Rcl (W): 0.6048 Valid F1 (W): 0.6011
+EPOCH: 27/30 
+Train Loss: 0.5794 Train Acc (M): 0.5051 Train Prc (M): 0.5948 Train Rcl (M): 0.7995 Train F1 (M): 0.6666 Train Acc (W): 0.4706 Train Prc (W): 0.7342 Train Rcl (W): 0.6499 Train F1 (W): 0.6319 
+Valid Loss: 1.4652 Valid Acc (M): 0.2974 Valid Prc (M): 0.4495 Valid Rcl (M): 0.4389 Valid F1 (M): 0.4108 Valid Acc (W): 0.4285 Valid Prc (W): 0.5937 Valid Rcl (W): 0.5764 Valid F1 (W): 0.5639
+EPOCH: 28/30 
+Train Loss: 0.5446 Train Acc (M): 0.5253 Train Prc (M): 0.6127 Train Rcl (M): 0.8145 Train F1 (M): 0.6842 Train Acc (W): 0.4873 Train Prc (W): 0.7442 Train Rcl (W): 0.6641 Train F1 (W): 0.6474 
+Valid Loss: 1.4772 Valid Acc (M): 0.2969 Valid Prc (M): 0.4602 Valid Rcl (M): 0.4376 Valid F1 (M): 0.4145 Valid Acc (W): 0.4250 Valid Prc (W): 0.6246 Valid Rcl (W): 0.5537 Valid F1 (W): 0.5630
+EPOCH: 29/30 
+Train Loss: 0.5389 Train Acc (M): 0.5353 Train Prc (M): 0.6219 Train Rcl (M): 0.8205 Train F1 (M): 0.6931 Train Acc (W): 0.5021 Train Prc (W): 0.7478 Train Rcl (W): 0.6753 Train F1 (W): 0.6619 
+Valid Loss: 1.3283 Valid Acc (M): 0.3443 Valid Prc (M): 0.4902 Valid Rcl (M): 0.4924 Valid F1 (M): 0.4681 Valid Acc (W): 0.4698 Valid Prc (W): 0.6357 Valid Rcl (W): 0.6158 Valid F1 (W): 0.6090
+EPOCH: 30/30 
+Train Loss: 0.5752 Train Acc (M): 0.5174 Train Prc (M): 0.6044 Train Rcl (M): 0.8089 Train F1 (M): 0.6777 Train Acc (W): 0.4972 Train Prc (W): 0.7511 Train Rcl (W): 0.6691 Train F1 (W): 0.6573 
+Valid Loss: 1.4785 Valid Acc (M): 0.3248 Valid Prc (M): 0.4697 Valid Rcl (M): 0.4666 Valid F1 (M): 0.4384 Valid Acc (W): 0.4584 Valid Prc (W): 0.6280 Valid Rcl (W): 0.5980 Valid F1 (W): 0.5922
+SUBJECT 2 VALIDATION RESULTS: 
+Accuracy: [0.41326531 0.65217391 0.475      0.70512821 0.64157706 0.51123596
+ 0.29385965 0.28571429 0.33939394 0.57241379 0.32374101 0.17105263
+ 0.03157895 0.15862069 0.1242236  0.73394495 0.80267966 0.34482759]
+Precision: [0.84927916 0.72115385 0.50165017 0.75688073 0.70196078 0.7
+ 0.38505747 0.41624365 0.7        0.76851852 0.39473684 0.22543353
+ 0.0483871  0.33823529 0.35087719 0.81632653 0.84163474 0.35087719]
+Recall: [0.44597385 0.87209302 0.89940828 0.91160221 0.8817734  0.65467626
+ 0.55371901 0.47674419 0.39716312 0.69166667 0.64285714 0.41489362
+ 0.08333333 0.23       0.16129032 0.87912088 0.94548063 0.95238095]
+F1: [0.58483755 0.78947368 0.6440678  0.82706767 0.78165939 0.67657993
+ 0.45423729 0.44444444 0.50678733 0.72807018 0.48913043 0.29213483
+ 0.06122449 0.27380952 0.22099448 0.84656085 0.89054054 0.51282051]
+
+ VALIDATING FOR SUBJECT 3 OF 4
++----------------------------+------------+
+|          Modules           | Parameters |
++----------------------------+------------+
+| conv_blocks.0.conv1.weight |    448     |
+|  conv_blocks.0.conv1.bias  |     64     |
+| conv_blocks.0.conv2.weight |   28672    |
+|  conv_blocks.0.conv2.bias  |     64     |
+| conv_blocks.1.conv1.weight |   28672    |
+|  conv_blocks.1.conv1.bias  |     64     |
+| conv_blocks.1.conv2.weight |   28672    |
+|  conv_blocks.1.conv2.bias  |     64     |
+| lstm_layers.0.weight_ih_l0 |  3702784   |
+| lstm_layers.0.weight_hh_l0 |   65536    |
+|  lstm_layers.0.bias_ih_l0  |    512     |
+|  lstm_layers.0.bias_hh_l0  |    512     |
+| lstm_layers.1.weight_ih_l0 |   65536    |
+| lstm_layers.1.weight_hh_l0 |   65536    |
+|  lstm_layers.1.bias_ih_l0  |    512     |
+|  lstm_layers.1.bias_hh_l0  |    512     |
+|         fc.weight          |    2304    |
+|          fc.bias           |     18     |
++----------------------------+------------+
+Total Params: 3990482
+Applied weighted class weights: 
+tensor([0.1521, 1.5406, 1.4953, 1.4011, 1.3848, 1.9447, 2.0631, 1.6177, 1.8111,
+        2.2383, 2.9291, 2.4128, 2.8358, 2.1121, 2.0221, 1.1863, 0.3829, 1.9031])
+EPOCH: 1/30 
+Train Loss: 2.6901 Train Acc (M): 0.0908 Train Prc (M): 0.1688 Train Rcl (M): 0.1599 Train F1 (M): 0.1566 Train Acc (W): 0.1834 Train Prc (W): 0.2904 Train Rcl (W): 0.3058 Train F1 (W): 0.2930 
+Valid Loss: 2.6325 Valid Acc (M): 0.0659 Valid Prc (M): 0.1851 Valid Rcl (M): 0.1577 Valid F1 (M): 0.1083 Valid Acc (W): 0.2365 Valid Prc (W): 0.4606 Valid Rcl (W): 0.3581 Valid F1 (W): 0.3471
+Performance improved... (0.0->0.10825678879794075)
+EPOCH: 2/30 
+Train Loss: 2.1626 Train Acc (M): 0.1748 Train Prc (M): 0.3145 Train Rcl (M): 0.3145 Train F1 (M): 0.2860 Train Acc (W): 0.2536 Train Prc (W): 0.4209 Train Rcl (W): 0.3970 Train F1 (W): 0.3899 
+Valid Loss: 2.2332 Valid Acc (M): 0.0614 Valid Prc (M): 0.2001 Valid Rcl (M): 0.1860 Valid F1 (M): 0.1047 Valid Acc (W): 0.1618 Valid Prc (W): 0.5101 Valid Rcl (W): 0.2659 Valid F1 (W): 0.2624
+EPOCH: 3/30 
+Train Loss: 1.4965 Train Acc (M): 0.2978 Train Prc (M): 0.4180 Train Rcl (M): 0.5219 Train F1 (M): 0.4462 Train Acc (W): 0.3399 Train Prc (W): 0.5676 Train Rcl (W): 0.4999 Train F1 (W): 0.4960 
+Valid Loss: 2.1772 Valid Acc (M): 0.1131 Valid Prc (M): 0.2515 Valid Rcl (M): 0.2368 Valid F1 (M): 0.1846 Valid Acc (W): 0.2231 Valid Prc (W): 0.5285 Valid Rcl (W): 0.3133 Valid F1 (W): 0.3441
+Performance improved... (0.10825678879794075->0.1846259556908857)
+EPOCH: 4/30 
+Train Loss: 1.1960 Train Acc (M): 0.3581 Train Prc (M): 0.4824 Train Rcl (M): 0.6112 Train F1 (M): 0.5173 Train Acc (W): 0.3771 Train Prc (W): 0.6266 Train Rcl (W): 0.5487 Train F1 (W): 0.5354 
+Valid Loss: 2.2242 Valid Acc (M): 0.1031 Valid Prc (M): 0.2197 Valid Rcl (M): 0.2110 Valid F1 (M): 0.1651 Valid Acc (W): 0.2399 Valid Prc (W): 0.5104 Valid Rcl (W): 0.3227 Valid F1 (W): 0.3586
+EPOCH: 5/30 
+Train Loss: 1.0153 Train Acc (M): 0.4103 Train Prc (M): 0.5282 Train Rcl (M): 0.6702 Train F1 (M): 0.5737 Train Acc (W): 0.4148 Train Prc (W): 0.6564 Train Rcl (W): 0.5909 Train F1 (W): 0.5752 
+Valid Loss: 2.2096 Valid Acc (M): 0.1115 Valid Prc (M): 0.1958 Valid Rcl (M): 0.2148 Valid F1 (M): 0.1712 Valid Acc (W): 0.2414 Valid Prc (W): 0.4495 Valid Rcl (W): 0.3302 Valid F1 (W): 0.3590
+EPOCH: 6/30 
+Train Loss: 0.9310 Train Acc (M): 0.4278 Train Prc (M): 0.5429 Train Rcl (M): 0.6897 Train F1 (M): 0.5893 Train Acc (W): 0.4212 Train Prc (W): 0.6610 Train Rcl (W): 0.6002 Train F1 (W): 0.5805 
+Valid Loss: 2.2837 Valid Acc (M): 0.1108 Valid Prc (M): 0.1878 Valid Rcl (M): 0.2055 Valid F1 (M): 0.1665 Valid Acc (W): 0.2545 Valid Prc (W): 0.4586 Valid Rcl (W): 0.3412 Valid F1 (W): 0.3714
+EPOCH: 7/30 
+Train Loss: 0.8872 Train Acc (M): 0.4403 Train Prc (M): 0.5551 Train Rcl (M): 0.7046 Train F1 (M): 0.6042 Train Acc (W): 0.4339 Train Prc (W): 0.6731 Train Rcl (W): 0.6104 Train F1 (W): 0.5946 
+Valid Loss: 2.3814 Valid Acc (M): 0.0937 Valid Prc (M): 0.1918 Valid Rcl (M): 0.1859 Valid F1 (M): 0.1482 Valid Acc (W): 0.2343 Valid Prc (W): 0.4530 Valid Rcl (W): 0.3193 Valid F1 (W): 0.3493
+EPOCH: 8/30 
+Train Loss: 0.7619 Train Acc (M): 0.4772 Train Prc (M): 0.5869 Train Rcl (M): 0.7411 Train F1 (M): 0.6388 Train Acc (W): 0.4652 Train Prc (W): 0.7074 Train Rcl (W): 0.6426 Train F1 (W): 0.6229 
+Valid Loss: 2.3052 Valid Acc (M): 0.1009 Valid Prc (M): 0.1788 Valid Rcl (M): 0.2020 Valid F1 (M): 0.1624 Valid Acc (W): 0.2491 Valid Prc (W): 0.4393 Valid Rcl (W): 0.3442 Valid F1 (W): 0.3715
+EPOCH: 9/30 
+Train Loss: 0.7693 Train Acc (M): 0.4703 Train Prc (M): 0.5767 Train Rcl (M): 0.7411 Train F1 (M): 0.6314 Train Acc (W): 0.4550 Train Prc (W): 0.7052 Train Rcl (W): 0.6332 Train F1 (W): 0.6120 
+Valid Loss: 2.5137 Valid Acc (M): 0.0969 Valid Prc (M): 0.1781 Valid Rcl (M): 0.2018 Valid F1 (M): 0.1526 Valid Acc (W): 0.2427 Valid Prc (W): 0.4490 Valid Rcl (W): 0.3405 Valid F1 (W): 0.3612
+EPOCH: 10/30 
+Train Loss: 0.7277 Train Acc (M): 0.4919 Train Prc (M): 0.6023 Train Rcl (M): 0.7561 Train F1 (M): 0.6546 Train Acc (W): 0.4746 Train Prc (W): 0.7154 Train Rcl (W): 0.6500 Train F1 (W): 0.6334 
+Valid Loss: 2.7763 Valid Acc (M): 0.0928 Valid Prc (M): 0.1732 Valid Rcl (M): 0.1899 Valid F1 (M): 0.1447 Valid Acc (W): 0.2243 Valid Prc (W): 0.4482 Valid Rcl (W): 0.3187 Valid F1 (W): 0.3391
+EPOCH: 11/30 
+Train Loss: 0.7524 Train Acc (M): 0.4748 Train Prc (M): 0.5825 Train Rcl (M): 0.7400 Train F1 (M): 0.6373 Train Acc (W): 0.4674 Train Prc (W): 0.7048 Train Rcl (W): 0.6418 Train F1 (W): 0.6263 
+Valid Loss: 2.4585 Valid Acc (M): 0.1029 Valid Prc (M): 0.1903 Valid Rcl (M): 0.2076 Valid F1 (M): 0.1594 Valid Acc (W): 0.2342 Valid Prc (W): 0.4729 Valid Rcl (W): 0.3288 Valid F1 (W): 0.3511
+EPOCH: 12/30 
+Train Loss: 0.6557 Train Acc (M): 0.5140 Train Prc (M): 0.6182 Train Rcl (M): 0.7754 Train F1 (M): 0.6735 Train Acc (W): 0.4936 Train Prc (W): 0.7275 Train Rcl (W): 0.6676 Train F1 (W): 0.6504 
+Valid Loss: 2.7715 Valid Acc (M): 0.0861 Valid Prc (M): 0.1489 Valid Rcl (M): 0.1881 Valid F1 (M): 0.1337 Valid Acc (W): 0.1955 Valid Prc (W): 0.4590 Valid Rcl (W): 0.2901 Valid F1 (W): 0.3024
+EPOCH: 13/30 
+Train Loss: 0.6423 Train Acc (M): 0.5159 Train Prc (M): 0.6196 Train Rcl (M): 0.7768 Train F1 (M): 0.6742 Train Acc (W): 0.4992 Train Prc (W): 0.7311 Train Rcl (W): 0.6705 Train F1 (W): 0.6556 
+Valid Loss: 2.1279 Valid Acc (M): 0.1218 Valid Prc (M): 0.1877 Valid Rcl (M): 0.2444 Valid F1 (M): 0.1857 Valid Acc (W): 0.2869 Valid Prc (W): 0.4598 Valid Rcl (W): 0.4145 Valid F1 (W): 0.4113
+Performance improved... (0.1846259556908857->0.18572341854325622)
+EPOCH: 14/30 
+Train Loss: 0.6226 Train Acc (M): 0.5256 Train Prc (M): 0.6294 Train Rcl (M): 0.7829 Train F1 (M): 0.6837 Train Acc (W): 0.5055 Train Prc (W): 0.7322 Train Rcl (W): 0.6768 Train F1 (W): 0.6626 
+Valid Loss: 2.1235 Valid Acc (M): 0.1451 Valid Prc (M): 0.2179 Valid Rcl (M): 0.2772 Valid F1 (M): 0.2211 Valid Acc (W): 0.2654 Valid Prc (W): 0.5184 Valid Rcl (W): 0.3669 Valid F1 (W): 0.3929
+Performance improved... (0.18572341854325622->0.22110826016243304)
+EPOCH: 15/30 
+Train Loss: 0.6215 Train Acc (M): 0.5356 Train Prc (M): 0.6364 Train Rcl (M): 0.7900 Train F1 (M): 0.6923 Train Acc (W): 0.5159 Train Prc (W): 0.7378 Train Rcl (W): 0.6864 Train F1 (W): 0.6720 
+Valid Loss: 2.0069 Valid Acc (M): 0.1575 Valid Prc (M): 0.2407 Valid Rcl (M): 0.2938 Valid F1 (M): 0.2448 Valid Acc (W): 0.2874 Valid Prc (W): 0.5228 Valid Rcl (W): 0.3901 Valid F1 (W): 0.4212
+Performance improved... (0.22110826016243304->0.24475606137761582)
+EPOCH: 16/30 
+Train Loss: 0.5931 Train Acc (M): 0.5372 Train Prc (M): 0.6402 Train Rcl (M): 0.7906 Train F1 (M): 0.6946 Train Acc (W): 0.5235 Train Prc (W): 0.7445 Train Rcl (W): 0.6908 Train F1 (W): 0.6793 
+Valid Loss: 2.3480 Valid Acc (M): 0.1049 Valid Prc (M): 0.2021 Valid Rcl (M): 0.2035 Valid F1 (M): 0.1645 Valid Acc (W): 0.2442 Valid Prc (W): 0.4650 Valid Rcl (W): 0.3407 Valid F1 (W): 0.3645
+EPOCH: 17/30 
+Train Loss: 0.5968 Train Acc (M): 0.5462 Train Prc (M): 0.6499 Train Rcl (M): 0.7908 Train F1 (M): 0.7024 Train Acc (W): 0.5400 Train Prc (W): 0.7502 Train Rcl (W): 0.7040 Train F1 (W): 0.6945 
+Valid Loss: 2.3930 Valid Acc (M): 0.0950 Valid Prc (M): 0.1835 Valid Rcl (M): 0.1847 Valid F1 (M): 0.1612 Valid Acc (W): 0.2163 Valid Prc (W): 0.3905 Valid Rcl (W): 0.3119 Valid F1 (W): 0.3335
+EPOCH: 18/30 
+Train Loss: 0.6235 Train Acc (M): 0.5231 Train Prc (M): 0.6292 Train Rcl (M): 0.7753 Train F1 (M): 0.6817 Train Acc (W): 0.5146 Train Prc (W): 0.7366 Train Rcl (W): 0.6834 Train F1 (W): 0.6713 
+Valid Loss: 2.0975 Valid Acc (M): 0.1523 Valid Prc (M): 0.2430 Valid Rcl (M): 0.2720 Valid F1 (M): 0.2336 Valid Acc (W): 0.2678 Valid Prc (W): 0.5118 Valid Rcl (W): 0.3601 Valid F1 (W): 0.4011
+EPOCH: 19/30 
+Train Loss: 0.5643 Train Acc (M): 0.5566 Train Prc (M): 0.6568 Train Rcl (M): 0.8019 Train F1 (M): 0.7106 Train Acc (W): 0.5498 Train Prc (W): 0.7584 Train Rcl (W): 0.7112 Train F1 (W): 0.7022 
+Valid Loss: 1.9696 Valid Acc (M): 0.1772 Valid Prc (M): 0.2765 Valid Rcl (M): 0.3292 Valid F1 (M): 0.2741 Valid Acc (W): 0.3092 Valid Prc (W): 0.5347 Valid Rcl (W): 0.4202 Valid F1 (W): 0.4497
+Performance improved... (0.24475606137761582->0.2740837042480463)
+EPOCH: 20/30 
+Train Loss: 0.5409 Train Acc (M): 0.5713 Train Prc (M): 0.6693 Train Rcl (M): 0.8131 Train F1 (M): 0.7236 Train Acc (W): 0.5589 Train Prc (W): 0.7632 Train Rcl (W): 0.7195 Train F1 (W): 0.7106 
+Valid Loss: 2.2134 Valid Acc (M): 0.1510 Valid Prc (M): 0.2308 Valid Rcl (M): 0.2581 Valid F1 (M): 0.2267 Valid Acc (W): 0.2835 Valid Prc (W): 0.4912 Valid Rcl (W): 0.3738 Valid F1 (W): 0.4089
+EPOCH: 21/30 
+Train Loss: 0.5037 Train Acc (M): 0.5885 Train Prc (M): 0.6833 Train Rcl (M): 0.8280 Train F1 (M): 0.7374 Train Acc (W): 0.5713 Train Prc (W): 0.7738 Train Rcl (W): 0.7297 Train F1 (W): 0.7211 
+Valid Loss: 2.2089 Valid Acc (M): 0.1595 Valid Prc (M): 0.2701 Valid Rcl (M): 0.2880 Valid F1 (M): 0.2494 Valid Acc (W): 0.2685 Valid Prc (W): 0.5322 Valid Rcl (W): 0.3686 Valid F1 (W): 0.4013
+EPOCH: 22/30 
+Train Loss: 0.4929 Train Acc (M): 0.5864 Train Prc (M): 0.6801 Train Rcl (M): 0.8266 Train F1 (M): 0.7361 Train Acc (W): 0.5729 Train Prc (W): 0.7772 Train Rcl (W): 0.7317 Train F1 (W): 0.7229 
+Valid Loss: 1.9208 Valid Acc (M): 0.1668 Valid Prc (M): 0.2481 Valid Rcl (M): 0.3122 Valid F1 (M): 0.2483 Valid Acc (W): 0.3037 Valid Prc (W): 0.5597 Valid Rcl (W): 0.4046 Valid F1 (W): 0.4334
+EPOCH: 23/30 
+Train Loss: 0.4823 Train Acc (M): 0.6010 Train Prc (M): 0.6923 Train Rcl (M): 0.8367 Train F1 (M): 0.7475 Train Acc (W): 0.5860 Train Prc (W): 0.7836 Train Rcl (W): 0.7410 Train F1 (W): 0.7334 
+Valid Loss: 1.9864 Valid Acc (M): 0.1729 Valid Prc (M): 0.2664 Valid Rcl (M): 0.3131 Valid F1 (M): 0.2712 Valid Acc (W): 0.3120 Valid Prc (W): 0.5107 Valid Rcl (W): 0.4248 Valid F1 (W): 0.4516
+EPOCH: 24/30 
+Train Loss: 0.4897 Train Acc (M): 0.5856 Train Prc (M): 0.6805 Train Rcl (M): 0.8194 Train F1 (M): 0.7343 Train Acc (W): 0.5809 Train Prc (W): 0.7766 Train Rcl (W): 0.7362 Train F1 (W): 0.7290 
+Valid Loss: 2.2258 Valid Acc (M): 0.1197 Valid Prc (M): 0.2079 Valid Rcl (M): 0.2447 Valid F1 (M): 0.1861 Valid Acc (W): 0.2547 Valid Prc (W): 0.4604 Valid Rcl (W): 0.3617 Valid F1 (W): 0.3761
+EPOCH: 25/30 
+Train Loss: 0.4702 Train Acc (M): 0.6012 Train Prc (M): 0.6940 Train Rcl (M): 0.8323 Train F1 (M): 0.7474 Train Acc (W): 0.5915 Train Prc (W): 0.7838 Train Rcl (W): 0.7452 Train F1 (W): 0.7376 
+Valid Loss: 1.9884 Valid Acc (M): 0.1968 Valid Prc (M): 0.2886 Valid Rcl (M): 0.3581 Valid F1 (M): 0.3002 Valid Acc (W): 0.3135 Valid Prc (W): 0.5339 Valid Rcl (W): 0.4312 Valid F1 (W): 0.4527
+Performance improved... (0.2740837042480463->0.3002251509595077)
+EPOCH: 26/30 
+Train Loss: 0.4727 Train Acc (M): 0.6109 Train Prc (M): 0.6997 Train Rcl (M): 0.8422 Train F1 (M): 0.7555 Train Acc (W): 0.5992 Train Prc (W): 0.7897 Train Rcl (W): 0.7516 Train F1 (W): 0.7442 
+Valid Loss: 1.7489 Valid Acc (M): 0.2411 Valid Prc (M): 0.3297 Valid Rcl (M): 0.4421 Valid F1 (M): 0.3582 Valid Acc (W): 0.3376 Valid Prc (W): 0.5775 Valid Rcl (W): 0.4669 Valid F1 (W): 0.4838
+Performance improved... (0.3002251509595077->0.35817055498037537)
+EPOCH: 27/30 
+Train Loss: 0.4498 Train Acc (M): 0.6227 Train Prc (M): 0.7097 Train Rcl (M): 0.8503 Train F1 (M): 0.7647 Train Acc (W): 0.6124 Train Prc (W): 0.7999 Train Rcl (W): 0.7611 Train F1 (W): 0.7544 
+Valid Loss: 2.3410 Valid Acc (M): 0.1536 Valid Prc (M): 0.2541 Valid Rcl (M): 0.2851 Valid F1 (M): 0.2384 Valid Acc (W): 0.2661 Valid Prc (W): 0.5250 Valid Rcl (W): 0.3628 Valid F1 (W): 0.3968
+EPOCH: 28/30 
+Train Loss: 0.4482 Train Acc (M): 0.6127 Train Prc (M): 0.7024 Train Rcl (M): 0.8384 Train F1 (M): 0.7565 Train Acc (W): 0.6152 Train Prc (W): 0.7996 Train Rcl (W): 0.7623 Train F1 (W): 0.7572 
+Valid Loss: 2.0644 Valid Acc (M): 0.1889 Valid Prc (M): 0.2733 Valid Rcl (M): 0.3465 Valid F1 (M): 0.2837 Valid Acc (W): 0.3209 Valid Prc (W): 0.5492 Valid Rcl (W): 0.4253 Valid F1 (W): 0.4557
+EPOCH: 29/30 
+Train Loss: 0.4383 Train Acc (M): 0.6164 Train Prc (M): 0.7061 Train Rcl (M): 0.8408 Train F1 (M): 0.7595 Train Acc (W): 0.6136 Train Prc (W): 0.7976 Train Rcl (W): 0.7609 Train F1 (W): 0.7560 
+Valid Loss: 2.2607 Valid Acc (M): 0.1690 Valid Prc (M): 0.2769 Valid Rcl (M): 0.3075 Valid F1 (M): 0.2555 Valid Acc (W): 0.2911 Valid Prc (W): 0.5465 Valid Rcl (W): 0.3867 Valid F1 (W): 0.4221
+EPOCH: 30/30 
+Train Loss: 0.4479 Train Acc (M): 0.6126 Train Prc (M): 0.7027 Train Rcl (M): 0.8411 Train F1 (M): 0.7569 Train Acc (W): 0.6109 Train Prc (W): 0.7990 Train Rcl (W): 0.7591 Train F1 (W): 0.7538 
+Valid Loss: 2.1065 Valid Acc (M): 0.1867 Valid Prc (M): 0.2855 Valid Rcl (M): 0.3453 Valid F1 (M): 0.2820 Valid Acc (W): 0.3108 Valid Prc (W): 0.5207 Valid Rcl (W): 0.4246 Valid F1 (W): 0.4446
+SUBJECT 3 VALIDATION RESULTS: 
+Accuracy: [0.38217338 0.14102564 0.35483871 0.08741259 0.21088435 0.07119741
+ 0.04113924 0.16331658 0.29554656 0.07590759 0.         0.08022923
+ 0.19891008 0.51282051 0.44036697 0.37354988 0.63052209 0.27941176]
+Precision: [0.78742138 0.22267206 0.39951574 0.2016129  0.41059603 0.12643678
+ 0.06735751 0.19756839 0.37823834 0.10697674 0.         0.10566038
+ 0.22324159 0.73394495 0.49484536 0.40759494 0.71689498 0.35315985]
+Recall: [0.42614023 0.27777778 0.76036866 0.13368984 0.30243902 0.14012739
+ 0.09558824 0.48507463 0.57480315 0.20720721 0.         0.25
+ 0.6460177  0.62992126 0.8        0.81725888 0.83957219 0.57228916]
+F1: [0.55300353 0.24719101 0.52380952 0.1607717  0.34831461 0.13293051
+ 0.07902736 0.28077754 0.45625    0.14110429 0.         0.14854111
+ 0.33181818 0.6779661  0.61146497 0.54391892 0.77339901 0.43678161]
+
+ VALIDATING FOR SUBJECT 4 OF 4
++----------------------------+------------+
+|          Modules           | Parameters |
++----------------------------+------------+
+| conv_blocks.0.conv1.weight |    448     |
+|  conv_blocks.0.conv1.bias  |     64     |
+| conv_blocks.0.conv2.weight |   28672    |
+|  conv_blocks.0.conv2.bias  |     64     |
+| conv_blocks.1.conv1.weight |   28672    |
+|  conv_blocks.1.conv1.bias  |     64     |
+| conv_blocks.1.conv2.weight |   28672    |
+|  conv_blocks.1.conv2.bias  |     64     |
+| lstm_layers.0.weight_ih_l0 |  3702784   |
+| lstm_layers.0.weight_hh_l0 |   65536    |
+|  lstm_layers.0.bias_ih_l0  |    512     |
+|  lstm_layers.0.bias_hh_l0  |    512     |
+| lstm_layers.1.weight_ih_l0 |   65536    |
+| lstm_layers.1.weight_hh_l0 |   65536    |
+|  lstm_layers.1.bias_ih_l0  |    512     |
+|  lstm_layers.1.bias_hh_l0  |    512     |
+|         fc.weight          |    2304    |
+|          fc.bias           |     18     |
++----------------------------+------------+
+Total Params: 3990482
+Applied weighted class weights: 
+tensor([0.1361, 1.5926, 1.4896, 1.5113, 1.4355, 1.9802, 2.1551, 1.8196, 2.0090,
+        2.4621, 2.9954, 2.5768, 2.8810, 2.2670, 2.2126, 1.2440, 0.4392, 1.8857])
+EPOCH: 1/30 
+Train Loss: 2.7003 Train Acc (M): 0.0720 Train Prc (M): 0.1603 Train Rcl (M): 0.1175 Train F1 (M): 0.1202 Train Acc (W): 0.2117 Train Prc (W): 0.3122 Train Rcl (W): 0.3619 Train F1 (W): 0.3191 
+Valid Loss: 2.5931 Valid Acc (M): 0.0774 Valid Prc (M): 0.1344 Valid Rcl (M): 0.1709 Valid F1 (M): 0.1160 Valid Acc (W): 0.2329 Valid Prc (W): 0.3052 Valid Rcl (W): 0.4371 Valid F1 (W): 0.3364
+Performance improved... (0.0->0.11599921679967112)
+EPOCH: 2/30 
+Train Loss: 2.1610 Train Acc (M): 0.1522 Train Prc (M): 0.2685 Train Rcl (M): 0.2751 Train F1 (M): 0.2446 Train Acc (W): 0.2670 Train Prc (W): 0.4249 Train Rcl (W): 0.4136 Train F1 (W): 0.3975 
+Valid Loss: 2.1823 Valid Acc (M): 0.0926 Valid Prc (M): 0.1666 Valid Rcl (M): 0.2119 Valid F1 (M): 0.1436 Valid Acc (W): 0.2089 Valid Prc (W): 0.3279 Valid Rcl (W): 0.3677 Valid F1 (W): 0.3163
+Performance improved... (0.11599921679967112->0.14357030241376031)
+EPOCH: 3/30 
+Train Loss: 1.6625 Train Acc (M): 0.2387 Train Prc (M): 0.3518 Train Rcl (M): 0.4299 Train F1 (M): 0.3695 Train Acc (W): 0.3068 Train Prc (W): 0.5308 Train Rcl (W): 0.4575 Train F1 (W): 0.4546 
+Valid Loss: 1.9739 Valid Acc (M): 0.1138 Valid Prc (M): 0.2098 Valid Rcl (M): 0.2420 Valid F1 (M): 0.1800 Valid Acc (W): 0.2243 Valid Prc (W): 0.3896 Valid Rcl (W): 0.3566 Valid F1 (W): 0.3398
+Performance improved... (0.14357030241376031->0.17996246217210732)
+EPOCH: 4/30 
+Train Loss: 1.4138 Train Acc (M): 0.2896 Train Prc (M): 0.4027 Train Rcl (M): 0.5165 Train F1 (M): 0.4344 Train Acc (W): 0.3338 Train Prc (W): 0.5777 Train Rcl (W): 0.4975 Train F1 (W): 0.4870 
+Valid Loss: 2.2185 Valid Acc (M): 0.0989 Valid Prc (M): 0.2194 Valid Rcl (M): 0.2092 Valid F1 (M): 0.1633 Valid Acc (W): 0.2061 Valid Prc (W): 0.4154 Valid Rcl (W): 0.3201 Valid F1 (W): 0.3202
+EPOCH: 5/30 
+Train Loss: 1.2609 Train Acc (M): 0.3243 Train Prc (M): 0.4330 Train Rcl (M): 0.5665 Train F1 (M): 0.4749 Train Acc (W): 0.3633 Train Prc (W): 0.6132 Train Rcl (W): 0.5288 Train F1 (W): 0.5195 
+Valid Loss: 1.8137 Valid Acc (M): 0.1453 Valid Prc (M): 0.2429 Valid Rcl (M): 0.2985 Valid F1 (M): 0.2279 Valid Acc (W): 0.2597 Valid Prc (W): 0.5071 Valid Rcl (W): 0.3727 Valid F1 (W): 0.3863
+Performance improved... (0.17996246217210732->0.2278684199689084)
+EPOCH: 6/30 
+Train Loss: 1.1963 Train Acc (M): 0.3388 Train Prc (M): 0.4489 Train Rcl (M): 0.5888 Train F1 (M): 0.4942 Train Acc (W): 0.3625 Train Prc (W): 0.6102 Train Rcl (W): 0.5330 Train F1 (W): 0.5213 
+Valid Loss: 1.7784 Valid Acc (M): 0.1433 Valid Prc (M): 0.2432 Valid Rcl (M): 0.2966 Valid F1 (M): 0.2319 Valid Acc (W): 0.2139 Valid Prc (W): 0.4410 Valid Rcl (W): 0.3415 Valid F1 (W): 0.3353
+Performance improved... (0.2278684199689084->0.23192626684075357)
+EPOCH: 7/30 
+Train Loss: 1.0397 Train Acc (M): 0.3743 Train Prc (M): 0.4828 Train Rcl (M): 0.6373 Train F1 (M): 0.5342 Train Acc (W): 0.3877 Train Prc (W): 0.6438 Train Rcl (W): 0.5634 Train F1 (W): 0.5484 
+Valid Loss: 2.0239 Valid Acc (M): 0.1279 Valid Prc (M): 0.2330 Valid Rcl (M): 0.2846 Valid F1 (M): 0.2067 Valid Acc (W): 0.2225 Valid Prc (W): 0.4797 Valid Rcl (W): 0.3455 Valid F1 (W): 0.3434
+EPOCH: 8/30 
+Train Loss: 0.9459 Train Acc (M): 0.3936 Train Prc (M): 0.5013 Train Rcl (M): 0.6639 Train F1 (M): 0.5548 Train Acc (W): 0.4035 Train Prc (W): 0.6676 Train Rcl (W): 0.5802 Train F1 (W): 0.5645 
+Valid Loss: 1.8652 Valid Acc (M): 0.1609 Valid Prc (M): 0.3237 Valid Rcl (M): 0.3296 Valid F1 (M): 0.2536 Valid Acc (W): 0.2736 Valid Prc (W): 0.5249 Valid Rcl (W): 0.4033 Valid F1 (W): 0.4049
+Performance improved... (0.23192626684075357->0.2536159897372908)
+EPOCH: 9/30 
+Train Loss: 0.8510 Train Acc (M): 0.4272 Train Prc (M): 0.5335 Train Rcl (M): 0.7013 Train F1 (M): 0.5905 Train Acc (W): 0.4313 Train Prc (W): 0.6914 Train Rcl (W): 0.6084 Train F1 (W): 0.5931 
+Valid Loss: 2.0822 Valid Acc (M): 0.1467 Valid Prc (M): 0.2784 Valid Rcl (M): 0.3020 Valid F1 (M): 0.2337 Valid Acc (W): 0.2700 Valid Prc (W): 0.5113 Valid Rcl (W): 0.3930 Valid F1 (W): 0.4000
+EPOCH: 10/30 
+Train Loss: 0.8264 Train Acc (M): 0.4234 Train Prc (M): 0.5296 Train Rcl (M): 0.7021 Train F1 (M): 0.5871 Train Acc (W): 0.4266 Train Prc (W): 0.6944 Train Rcl (W): 0.6046 Train F1 (W): 0.5883 
+Valid Loss: 1.5001 Valid Acc (M): 0.2030 Valid Prc (M): 0.3183 Valid Rcl (M): 0.4038 Valid F1 (M): 0.3140 Valid Acc (W): 0.2888 Valid Prc (W): 0.5545 Valid Rcl (W): 0.4295 Valid F1 (W): 0.4268
+Performance improved... (0.2536159897372908->0.31400702370370565)
+EPOCH: 11/30 
+Train Loss: 0.8330 Train Acc (M): 0.4273 Train Prc (M): 0.5324 Train Rcl (M): 0.6958 Train F1 (M): 0.5891 Train Acc (W): 0.4403 Train Prc (W): 0.6878 Train Rcl (W): 0.6136 Train F1 (W): 0.6014 
+Valid Loss: 1.7975 Valid Acc (M): 0.1729 Valid Prc (M): 0.2824 Valid Rcl (M): 0.3556 Valid F1 (M): 0.2737 Valid Acc (W): 0.2570 Valid Prc (W): 0.5152 Valid Rcl (W): 0.3904 Valid F1 (W): 0.3895
+EPOCH: 12/30 
+Train Loss: 0.7979 Train Acc (M): 0.4320 Train Prc (M): 0.5379 Train Rcl (M): 0.7120 Train F1 (M): 0.5957 Train Acc (W): 0.4294 Train Prc (W): 0.6947 Train Rcl (W): 0.6072 Train F1 (W): 0.5909 
+Valid Loss: 1.5255 Valid Acc (M): 0.2044 Valid Prc (M): 0.3039 Valid Rcl (M): 0.3908 Valid F1 (M): 0.3170 Valid Acc (W): 0.3102 Valid Prc (W): 0.5463 Valid Rcl (W): 0.4429 Valid F1 (W): 0.4517
+Performance improved... (0.31400702370370565->0.31704844374631375)
+EPOCH: 13/30 
+Train Loss: 0.7770 Train Acc (M): 0.4519 Train Prc (M): 0.5574 Train Rcl (M): 0.7208 Train F1 (M): 0.6143 Train Acc (W): 0.4689 Train Prc (W): 0.7106 Train Rcl (W): 0.6378 Train F1 (W): 0.6296 
+Valid Loss: 1.6583 Valid Acc (M): 0.1807 Valid Prc (M): 0.2790 Valid Rcl (M): 0.3600 Valid F1 (M): 0.2788 Valid Acc (W): 0.2990 Valid Prc (W): 0.5429 Valid Rcl (W): 0.4258 Valid F1 (W): 0.4324
+EPOCH: 14/30 
+Train Loss: 0.6995 Train Acc (M): 0.4772 Train Prc (M): 0.5765 Train Rcl (M): 0.7544 Train F1 (M): 0.6392 Train Acc (W): 0.4774 Train Prc (W): 0.7258 Train Rcl (W): 0.6501 Train F1 (W): 0.6370 
+Valid Loss: 1.4358 Valid Acc (M): 0.2327 Valid Prc (M): 0.3600 Valid Rcl (M): 0.4294 Valid F1 (M): 0.3533 Valid Acc (W): 0.3127 Valid Prc (W): 0.5786 Valid Rcl (W): 0.4498 Valid F1 (W): 0.4561
+Performance improved... (0.31704844374631375->0.3533035120681417)
+EPOCH: 15/30 
+Train Loss: 0.7217 Train Acc (M): 0.4667 Train Prc (M): 0.5698 Train Rcl (M): 0.7423 Train F1 (M): 0.6291 Train Acc (W): 0.4653 Train Prc (W): 0.7143 Train Rcl (W): 0.6391 Train F1 (W): 0.6259 
+Valid Loss: 1.4690 Valid Acc (M): 0.2194 Valid Prc (M): 0.3303 Valid Rcl (M): 0.4329 Valid F1 (M): 0.3401 Valid Acc (W): 0.2783 Valid Prc (W): 0.5454 Valid Rcl (W): 0.4276 Valid F1 (W): 0.4202
+EPOCH: 16/30 
+Train Loss: 0.6640 Train Acc (M): 0.4902 Train Prc (M): 0.5892 Train Rcl (M): 0.7681 Train F1 (M): 0.6523 Train Acc (W): 0.4820 Train Prc (W): 0.7289 Train Rcl (W): 0.6553 Train F1 (W): 0.6424 
+Valid Loss: 1.5153 Valid Acc (M): 0.2244 Valid Prc (M): 0.3324 Valid Rcl (M): 0.4270 Valid F1 (M): 0.3434 Valid Acc (W): 0.3087 Valid Prc (W): 0.5504 Valid Rcl (W): 0.4548 Valid F1 (W): 0.4529
+EPOCH: 17/30 
+Train Loss: 0.6560 Train Acc (M): 0.4930 Train Prc (M): 0.5908 Train Rcl (M): 0.7717 Train F1 (M): 0.6544 Train Acc (W): 0.4811 Train Prc (W): 0.7330 Train Rcl (W): 0.6558 Train F1 (W): 0.6409 
+Valid Loss: 1.5663 Valid Acc (M): 0.2096 Valid Prc (M): 0.3301 Valid Rcl (M): 0.4160 Valid F1 (M): 0.3223 Valid Acc (W): 0.2745 Valid Prc (W): 0.5499 Valid Rcl (W): 0.4260 Valid F1 (W): 0.4124
+EPOCH: 18/30 
+Train Loss: 0.6296 Train Acc (M): 0.4998 Train Prc (M): 0.5969 Train Rcl (M): 0.7796 Train F1 (M): 0.6617 Train Acc (W): 0.4925 Train Prc (W): 0.7404 Train Rcl (W): 0.6640 Train F1 (W): 0.6519 
+Valid Loss: 1.4686 Valid Acc (M): 0.2348 Valid Prc (M): 0.3453 Valid Rcl (M): 0.4356 Valid F1 (M): 0.3525 Valid Acc (W): 0.3297 Valid Prc (W): 0.5778 Valid Rcl (W): 0.4741 Valid F1 (W): 0.4749
+EPOCH: 19/30 
+Train Loss: 0.6173 Train Acc (M): 0.5135 Train Prc (M): 0.6103 Train Rcl (M): 0.7833 Train F1 (M): 0.6731 Train Acc (W): 0.5099 Train Prc (W): 0.7475 Train Rcl (W): 0.6777 Train F1 (W): 0.6682 
+Valid Loss: 1.5367 Valid Acc (M): 0.2395 Valid Prc (M): 0.3475 Valid Rcl (M): 0.4449 Valid F1 (M): 0.3568 Valid Acc (W): 0.3388 Valid Prc (W): 0.5978 Valid Rcl (W): 0.4791 Valid F1 (W): 0.4832
+Performance improved... (0.3533035120681417->0.3568455880481298)
+EPOCH: 20/30 
+Train Loss: 0.5743 Train Acc (M): 0.5304 Train Prc (M): 0.6231 Train Rcl (M): 0.7988 Train F1 (M): 0.6874 Train Acc (W): 0.5287 Train Prc (W): 0.7628 Train Rcl (W): 0.6925 Train F1 (W): 0.6845 
+Valid Loss: 1.4880 Valid Acc (M): 0.2517 Valid Prc (M): 0.3611 Valid Rcl (M): 0.4660 Valid F1 (M): 0.3700 Valid Acc (W): 0.3396 Valid Prc (W): 0.6112 Valid Rcl (W): 0.4789 Valid F1 (W): 0.4826
+Performance improved... (0.3568455880481298->0.37004951652072576)
+EPOCH: 21/30 
+Train Loss: 0.5786 Train Acc (M): 0.5256 Train Prc (M): 0.6200 Train Rcl (M): 0.7942 Train F1 (M): 0.6834 Train Acc (W): 0.5206 Train Prc (W): 0.7512 Train Rcl (W): 0.6857 Train F1 (W): 0.6770 
+Valid Loss: 1.4347 Valid Acc (M): 0.2421 Valid Prc (M): 0.3454 Valid Rcl (M): 0.4618 Valid F1 (M): 0.3629 Valid Acc (W): 0.3296 Valid Prc (W): 0.6040 Valid Rcl (W): 0.4731 Valid F1 (W): 0.4738
+EPOCH: 22/30 
+Train Loss: 0.5962 Train Acc (M): 0.5122 Train Prc (M): 0.6066 Train Rcl (M): 0.7851 Train F1 (M): 0.6722 Train Acc (W): 0.5083 Train Prc (W): 0.7452 Train Rcl (W): 0.6769 Train F1 (W): 0.6670 
+Valid Loss: 1.5929 Valid Acc (M): 0.2448 Valid Prc (M): 0.3431 Valid Rcl (M): 0.4347 Valid F1 (M): 0.3604 Valid Acc (W): 0.3578 Valid Prc (W): 0.5798 Valid Rcl (W): 0.4947 Valid F1 (W): 0.5009
+EPOCH: 23/30 
+Train Loss: 0.7153 Train Acc (M): 0.4860 Train Prc (M): 0.5868 Train Rcl (M): 0.7554 Train F1 (M): 0.6472 Train Acc (W): 0.4848 Train Prc (W): 0.7205 Train Rcl (W): 0.6551 Train F1 (W): 0.6445 
+Valid Loss: 1.6190 Valid Acc (M): 0.2252 Valid Prc (M): 0.3163 Valid Rcl (M): 0.4459 Valid F1 (M): 0.3406 Valid Acc (W): 0.2685 Valid Prc (W): 0.5405 Valid Rcl (W): 0.4311 Valid F1 (W): 0.4051
+EPOCH: 24/30 
+Train Loss: 0.5745 Train Acc (M): 0.5262 Train Prc (M): 0.6194 Train Rcl (M): 0.7928 Train F1 (M): 0.6834 Train Acc (W): 0.5289 Train Prc (W): 0.7578 Train Rcl (W): 0.6920 Train F1 (W): 0.6845 
+Valid Loss: 2.0158 Valid Acc (M): 0.1926 Valid Prc (M): 0.3621 Valid Rcl (M): 0.3910 Valid F1 (M): 0.3024 Valid Acc (W): 0.2727 Valid Prc (W): 0.5593 Valid Rcl (W): 0.4263 Valid F1 (W): 0.4132
+EPOCH: 25/30 
+Train Loss: 0.5871 Train Acc (M): 0.5240 Train Prc (M): 0.6201 Train Rcl (M): 0.7888 Train F1 (M): 0.6821 Train Acc (W): 0.5232 Train Prc (W): 0.7503 Train Rcl (W): 0.6881 Train F1 (W): 0.6801 
+Valid Loss: 1.7343 Valid Acc (M): 0.2224 Valid Prc (M): 0.3266 Valid Rcl (M): 0.4221 Valid F1 (M): 0.3412 Valid Acc (W): 0.3045 Valid Prc (W): 0.5492 Valid Rcl (W): 0.4575 Valid F1 (W): 0.4500
+EPOCH: 26/30 
+Train Loss: 0.5485 Train Acc (M): 0.5416 Train Prc (M): 0.6317 Train Rcl (M): 0.8114 Train F1 (M): 0.6974 Train Acc (W): 0.5341 Train Prc (W): 0.7639 Train Rcl (W): 0.6970 Train F1 (W): 0.6889 
+Valid Loss: 1.3716 Valid Acc (M): 0.2709 Valid Prc (M): 0.3741 Valid Rcl (M): 0.5057 Valid F1 (M): 0.3992 Valid Acc (W): 0.3438 Valid Prc (W): 0.6094 Valid Rcl (W): 0.4997 Valid F1 (W): 0.4925
+Performance improved... (0.37004951652072576->0.3992140064224566)
+EPOCH: 27/30 
+Train Loss: 0.5995 Train Acc (M): 0.5222 Train Prc (M): 0.6159 Train Rcl (M): 0.7932 Train F1 (M): 0.6806 Train Acc (W): 0.5135 Train Prc (W): 0.7479 Train Rcl (W): 0.6804 Train F1 (W): 0.6711 
+Valid Loss: 1.5833 Valid Acc (M): 0.2482 Valid Prc (M): 0.3524 Valid Rcl (M): 0.4625 Valid F1 (M): 0.3702 Valid Acc (W): 0.3370 Valid Prc (W): 0.5977 Valid Rcl (W): 0.4876 Valid F1 (W): 0.4847
+EPOCH: 28/30 
+Train Loss: 0.5178 Train Acc (M): 0.5571 Train Prc (M): 0.6458 Train Rcl (M): 0.8198 Train F1 (M): 0.7110 Train Acc (W): 0.5555 Train Prc (W): 0.7768 Train Rcl (W): 0.7145 Train F1 (W): 0.7083 
+Valid Loss: 1.2979 Valid Acc (M): 0.2876 Valid Prc (M): 0.3903 Valid Rcl (M): 0.5196 Valid F1 (M): 0.4184 Valid Acc (W): 0.3707 Valid Prc (W): 0.6331 Valid Rcl (W): 0.5248 Valid F1 (W): 0.5213
+Performance improved... (0.3992140064224566->0.41835074076813683)
+EPOCH: 29/30 
+Train Loss: 0.5385 Train Acc (M): 0.5388 Train Prc (M): 0.6298 Train Rcl (M): 0.8064 Train F1 (M): 0.6948 Train Acc (W): 0.5415 Train Prc (W): 0.7694 Train Rcl (W): 0.7030 Train F1 (W): 0.6961 
+Valid Loss: 1.7281 Valid Acc (M): 0.2589 Valid Prc (M): 0.3747 Valid Rcl (M): 0.4641 Valid F1 (M): 0.3827 Valid Acc (W): 0.3245 Valid Prc (W): 0.5735 Valid Rcl (W): 0.4873 Valid F1 (W): 0.4743
+EPOCH: 30/30 
+Train Loss: 0.5001 Train Acc (M): 0.5558 Train Prc (M): 0.6448 Train Rcl (M): 0.8153 Train F1 (M): 0.7094 Train Acc (W): 0.5562 Train Prc (W): 0.7722 Train Rcl (W): 0.7155 Train F1 (W): 0.7089 
+Valid Loss: 1.6410 Valid Acc (M): 0.2448 Valid Prc (M): 0.3532 Valid Rcl (M): 0.4482 Valid F1 (M): 0.3648 Valid Acc (W): 0.3415 Valid Prc (W): 0.5789 Valid Rcl (W): 0.4921 Valid F1 (W): 0.4889
+SUBJECT 4 VALIDATION RESULTS: 
+Accuracy: [0.37405542 0.26804124 0.35222672 0.40714286 0.4801444  0.43956044
+ 0.24390244 0.31847134 0.41919192 0.29120879 0.06806283 0.00555556
+ 0.         0.06711409 0.15189873 0.35127479 0.64444444 0.29467085]
+Precision: [0.89863843 0.48598131 0.43939394 0.45967742 0.49442379 0.50632911
+ 0.37037037 0.56179775 0.47701149 0.37062937 0.0962963  0.01041667
+ 0.         0.16393443 0.28235294 0.3573487  0.75129534 0.30031949]
+Recall: [0.39053254 0.37410072 0.63970588 0.78082192 0.94326241 0.76923077
+ 0.41666667 0.42372881 0.77570093 0.57608696 0.1884058  0.01176471
+ 0.         0.10204082 0.24742268 0.95384615 0.81920904 0.94      ]
+F1: [0.54445463 0.42276423 0.52095808 0.5786802  0.64878049 0.61068702
+ 0.39215686 0.48309179 0.59074733 0.45106383 0.12745098 0.01104972
+ 0.         0.12578616 0.26373626 0.51991614 0.78378378 0.45520581]
+
+PREDICTION RESULTS
+-------------------
+Average results
+Avg. Accuracy 0.3701 (±0.2065),  Avg. Precision 0.4859 (±0.2506),  Avg. Recall 0.5858 (±0.2907),  Avg. F1-Score 0.5052 (±0.2356)
+Average results (no null)
+Avg. Accuracy 0.3689 (±0.2124),  Avg. Precision 0.4653 (±0.2424),  Avg. Recall 0.5952 (±0.2964),  Avg. F1-Score 0.5018 (±0.2420)
+Average class results
+Class null: Avg. Accuracy 0.3916 (±0.0149),  Avg. Precision 0.8363 (±0.0422),  Avg. Recall 0.4250 (±0.0211),  Avg. F1-Score 0.5626 (±0.0154)
+Class open_door_1: Avg. Accuracy 0.3877 (±0.1972),  Avg. Precision 0.4843 (±0.1768),  Avg. Recall 0.6144 (±0.2913),  Avg. F1-Score 0.5292 (±0.2092)
+Class open_door_2: Avg. Accuracy 0.4369 (±0.0893),  Avg. Precision 0.4800 (±0.0680),  Avg. Recall 0.8146 (±0.1241),  Avg. F1-Score 0.6028 (±0.0851)
+Class close_door_1: Avg. Accuracy 0.4325 (±0.2256),  Avg. Precision 0.5049 (±0.2043),  Avg. Recall 0.6609 (±0.3081),  Avg. F1-Score 0.5649 (±0.2494)
+Class close_door_2: Avg. Accuracy 0.5114 (±0.1929),  Avg. Precision 0.5999 (±0.1537),  Avg. Recall 0.7510 (±0.2603),  Avg. F1-Score 0.6528 (±0.1881)
+Class open_fridge: Avg. Accuracy 0.3907 (±0.1881),  Avg. Precision 0.4889 (±0.2203),  Avg. Recall 0.5922 (±0.2669),  Avg. F1-Score 0.5306 (±0.2320)
+Class close_fridge: Avg. Accuracy 0.2348 (±0.1192),  Avg. Precision 0.4206 (±0.2834),  Avg. Recall 0.3622 (±0.1667),  Avg. F1-Score 0.3638 (±0.1715)
+Class open_dishwasher: Avg. Accuracy 0.2917 (±0.0848),  Avg. Precision 0.4285 (±0.1443),  Avg. Recall 0.4981 (±0.0670),  Avg. F1-Score 0.4447 (±0.1051)
+Class close_dishwasher: Avg. Accuracy 0.4351 (±0.1517),  Avg. Precision 0.5960 (±0.1778),  Avg. Recall 0.6369 (±0.1637),  Avg. F1-Score 0.5920 (±0.1369)
+Class open_drawer_1: Avg. Accuracy 0.3873 (±0.2179),  Avg. Precision 0.4840 (±0.2638),  Avg. Recall 0.5786 (±0.2339),  Avg. F1-Score 0.5194 (±0.2490)
+Class close_drawer_1: Avg. Accuracy 0.2415 (±0.2269),  Avg. Precision 0.2817 (±0.2509),  Avg. Recall 0.4218 (±0.3426),  Avg. F1-Score 0.3365 (±0.2893)
+Class open_drawer_2: Avg. Accuracy 0.1883 (±0.1873),  Avg. Precision 0.2665 (±0.2752),  Avg. Recall 0.3222 (±0.2203),  Avg. F1-Score 0.2788 (±0.2433)
+Class close_drawer_2: Avg. Accuracy 0.1817 (±0.1968),  Avg. Precision 0.2278 (±0.2519),  Avg. Recall 0.3547 (±0.3148),  Avg. F1-Score 0.2641 (±0.2622)
+Class open_drawer_3: Avg. Accuracy 0.3105 (±0.2003),  Avg. Precision 0.5459 (±0.3105),  Avg. Recall 0.3700 (±0.2126),  Avg. F1-Score 0.4368 (±0.2428)
+Class close_drawer_3: Avg. Accuracy 0.3157 (±0.1818),  Avg. Precision 0.4191 (±0.1071),  Avg. Recall 0.5503 (±0.3538),  Avg. F1-Score 0.4507 (±0.2115)
+Class clean_table: Avg. Accuracy 0.5133 (±0.1589),  Avg. Precision 0.5803 (±0.2005),  Avg. Recall 0.8504 (±0.0749),  Avg. F1-Score 0.6640 (±0.1371)
+Class drink_from_cup: Avg. Accuracy 0.6903 (±0.0677),  Avg. Precision 0.7574 (±0.0505),  Avg. Recall 0.8840 (±0.0553),  Avg. F1-Score 0.8150 (±0.0459)
+Class toggle_switch: Avg. Accuracy 0.3210 (±0.0352),  Avg. Precision 0.3438 (±0.0263),  Avg. Recall 0.8563 (±0.1642),  Avg. F1-Score 0.4850 (±0.0403)
+Subject-wise results
+Subject  1  results: 
+Class null: Accuracy 0.3968,  Precision 0.8100,  Recall 0.4375,  F1-Score 0.5682
+Class open_door_1: Accuracy 0.4896,  Precision 0.5072,  Recall 0.9338,  F1-Score 0.6573
+Class open_door_2: Accuracy 0.5655,  Precision 0.5795,  Recall 0.9591,  F1-Score 0.7225
+Class close_door_1: Accuracy 0.5305,  Precision 0.6016,  Recall 0.8177,  F1-Score 0.6932
+Class close_door_2: Accuracy 0.7129,  Precision 0.7926,  Recall 0.8765,  F1-Score 0.8324
+Class open_fridge: Accuracy 0.5410,  Precision 0.6226,  Recall 0.8049,  F1-Score 0.7021
+Class close_fridge: Accuracy 0.3603,  Precision 0.8596,  Recall 0.3828,  F1-Score 0.5297
+Class open_dishwasher: Accuracy 0.3991,  Precision 0.5385,  Recall 0.6067,  F1-Score 0.5705
+Class close_dishwasher: Accuracy 0.6864,  Precision 0.8286,  Recall 0.8000,  F1-Score 0.8140
+Class open_drawer_1: Accuracy 0.6096,  Precision 0.6899,  Recall 0.8396,  F1-Score 0.7574
+Class close_drawer_1: Accuracy 0.5742,  Precision 0.6357,  Recall 0.8558,  F1-Score 0.7295
+Class open_drawer_2: Accuracy 0.4965,  Precision 0.7245,  Recall 0.6121,  F1-Score 0.6636
+Class close_drawer_2: Accuracy 0.4965,  Precision 0.6396,  Recall 0.6893,  F1-Score 0.6636
+Class open_drawer_3: Accuracy 0.5035,  Precision 0.9474,  Recall 0.5180,  F1-Score 0.6698
+Class close_drawer_3: Accuracy 0.5462,  Precision 0.5485,  Recall 0.9924,  F1-Score 0.7065
+Class clean_table: Accuracy 0.5944,  Precision 0.7400,  Recall 0.7513,  F1-Score 0.7456
+Class drink_from_cup: Accuracy 0.6837,  Precision 0.7197,  Recall 0.9319,  F1-Score 0.8122
+Class toggle_switch: Accuracy 0.3653,  Precision 0.3708,  Recall 0.9606,  F1-Score 0.5351
+Subject  2  results: 
+Class null: Accuracy 0.4133,  Precision 0.8493,  Recall 0.4460,  F1-Score 0.5848
+Class open_door_1: Accuracy 0.6522,  Precision 0.7212,  Recall 0.8721,  F1-Score 0.7895
+Class open_door_2: Accuracy 0.4750,  Precision 0.5017,  Recall 0.8994,  F1-Score 0.6441
+Class close_door_1: Accuracy 0.7051,  Precision 0.7569,  Recall 0.9116,  F1-Score 0.8271
+Class close_door_2: Accuracy 0.6416,  Precision 0.7020,  Recall 0.8818,  F1-Score 0.7817
+Class open_fridge: Accuracy 0.5112,  Precision 0.7000,  Recall 0.6547,  F1-Score 0.6766
+Class close_fridge: Accuracy 0.2939,  Precision 0.3851,  Recall 0.5537,  F1-Score 0.4542
+Class open_dishwasher: Accuracy 0.2857,  Precision 0.4162,  Recall 0.4767,  F1-Score 0.4444
+Class close_dishwasher: Accuracy 0.3394,  Precision 0.7000,  Recall 0.3972,  F1-Score 0.5068
+Class open_drawer_1: Accuracy 0.5724,  Precision 0.7685,  Recall 0.6917,  F1-Score 0.7281
+Class close_drawer_1: Accuracy 0.3237,  Precision 0.3947,  Recall 0.6429,  F1-Score 0.4891
+Class open_drawer_2: Accuracy 0.1711,  Precision 0.2254,  Recall 0.4149,  F1-Score 0.2921
+Class close_drawer_2: Accuracy 0.0316,  Precision 0.0484,  Recall 0.0833,  F1-Score 0.0612
+Class open_drawer_3: Accuracy 0.1586,  Precision 0.3382,  Recall 0.2300,  F1-Score 0.2738
+Class close_drawer_3: Accuracy 0.1242,  Precision 0.3509,  Recall 0.1613,  F1-Score 0.2210
+Class clean_table: Accuracy 0.7339,  Precision 0.8163,  Recall 0.8791,  F1-Score 0.8466
+Class drink_from_cup: Accuracy 0.8027,  Precision 0.8416,  Recall 0.9455,  F1-Score 0.8905
+Class toggle_switch: Accuracy 0.3448,  Precision 0.3509,  Recall 0.9524,  F1-Score 0.5128
+Subject  3  results: 
+Class null: Accuracy 0.3822,  Precision 0.7874,  Recall 0.4261,  F1-Score 0.5530
+Class open_door_1: Accuracy 0.1410,  Precision 0.2227,  Recall 0.2778,  F1-Score 0.2472
+Class open_door_2: Accuracy 0.3548,  Precision 0.3995,  Recall 0.7604,  F1-Score 0.5238
+Class close_door_1: Accuracy 0.0874,  Precision 0.2016,  Recall 0.1337,  F1-Score 0.1608
+Class close_door_2: Accuracy 0.2109,  Precision 0.4106,  Recall 0.3024,  F1-Score 0.3483
+Class open_fridge: Accuracy 0.0712,  Precision 0.1264,  Recall 0.1401,  F1-Score 0.1329
+Class close_fridge: Accuracy 0.0411,  Precision 0.0674,  Recall 0.0956,  F1-Score 0.0790
+Class open_dishwasher: Accuracy 0.1633,  Precision 0.1976,  Recall 0.4851,  F1-Score 0.2808
+Class close_dishwasher: Accuracy 0.2955,  Precision 0.3782,  Recall 0.5748,  F1-Score 0.4562
+Class open_drawer_1: Accuracy 0.0759,  Precision 0.1070,  Recall 0.2072,  F1-Score 0.1411
+Class close_drawer_1: Accuracy 0.0000,  Precision 0.0000,  Recall 0.0000,  F1-Score 0.0000
+Class open_drawer_2: Accuracy 0.0802,  Precision 0.1057,  Recall 0.2500,  F1-Score 0.1485
+Class close_drawer_2: Accuracy 0.1989,  Precision 0.2232,  Recall 0.6460,  F1-Score 0.3318
+Class open_drawer_3: Accuracy 0.5128,  Precision 0.7339,  Recall 0.6299,  F1-Score 0.6780
+Class close_drawer_3: Accuracy 0.4404,  Precision 0.4948,  Recall 0.8000,  F1-Score 0.6115
+Class clean_table: Accuracy 0.3735,  Precision 0.4076,  Recall 0.8173,  F1-Score 0.5439
+Class drink_from_cup: Accuracy 0.6305,  Precision 0.7169,  Recall 0.8396,  F1-Score 0.7734
+Class toggle_switch: Accuracy 0.2794,  Precision 0.3532,  Recall 0.5723,  F1-Score 0.4368
+Subject  4  results: 
+Class null: Accuracy 0.3741,  Precision 0.8986,  Recall 0.3905,  F1-Score 0.5445
+Class open_door_1: Accuracy 0.2680,  Precision 0.4860,  Recall 0.3741,  F1-Score 0.4228
+Class open_door_2: Accuracy 0.3522,  Precision 0.4394,  Recall 0.6397,  F1-Score 0.5210
+Class close_door_1: Accuracy 0.4071,  Precision 0.4597,  Recall 0.7808,  F1-Score 0.5787
+Class close_door_2: Accuracy 0.4801,  Precision 0.4944,  Recall 0.9433,  F1-Score 0.6488
+Class open_fridge: Accuracy 0.4396,  Precision 0.5063,  Recall 0.7692,  F1-Score 0.6107
+Class close_fridge: Accuracy 0.2439,  Precision 0.3704,  Recall 0.4167,  F1-Score 0.3922
+Class open_dishwasher: Accuracy 0.3185,  Precision 0.5618,  Recall 0.4237,  F1-Score 0.4831
+Class close_dishwasher: Accuracy 0.4192,  Precision 0.4770,  Recall 0.7757,  F1-Score 0.5907
+Class open_drawer_1: Accuracy 0.2912,  Precision 0.3706,  Recall 0.5761,  F1-Score 0.4511
+Class close_drawer_1: Accuracy 0.0681,  Precision 0.0963,  Recall 0.1884,  F1-Score 0.1275
+Class open_drawer_2: Accuracy 0.0056,  Precision 0.0104,  Recall 0.0118,  F1-Score 0.0110
+Class close_drawer_2: Accuracy 0.0000,  Precision 0.0000,  Recall 0.0000,  F1-Score 0.0000
+Class open_drawer_3: Accuracy 0.0671,  Precision 0.1639,  Recall 0.1020,  F1-Score 0.1258
+Class close_drawer_3: Accuracy 0.1519,  Precision 0.2824,  Recall 0.2474,  F1-Score 0.2637
+Class clean_table: Accuracy 0.3513,  Precision 0.3573,  Recall 0.9538,  F1-Score 0.5199
+Class drink_from_cup: Accuracy 0.6444,  Precision 0.7513,  Recall 0.8192,  F1-Score 0.7838
+Class toggle_switch: Accuracy 0.2947,  Precision 0.3003,  Recall 0.9400,  F1-Score 0.4552
+
+GENERALIZATION GAP ANALYSIS
+-------------------
+Average results
+Avg. Accuracy 0.1382 (±0.1902),  Avg. Precision 0.1169 (±0.2062),  Avg. Recall 0.1926 (±0.1747),  Avg. F1-Score 0.1594 (±0.1967)
+Subject-wise results
+Subject  1  results: 
+Accuracy -0.1065,  Precision -0.1501,  Recall -0.0593,  F1-Score -0.1022
+Subject  2  results: 
+Accuracy 0.0201,  Precision -0.0078,  Recall 0.1292,  F1-Score 0.0497
+Subject  3  results: 
+Accuracy 0.3698,  Precision 0.3700,  Recall 0.4001,  F1-Score 0.3973
+Subject  4  results: 
+Accuracy 0.2695,  Precision 0.2555,  Recall 0.3002,  F1-Score 0.2927
+
+Final time elapsed: 00:10:54.47
+
