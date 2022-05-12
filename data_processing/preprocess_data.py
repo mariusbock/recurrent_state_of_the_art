@@ -57,7 +57,7 @@ def load_dataset(dataset, pred_type='actions', include_null=False):
                        'stand_to_sit', 'sit_to_stand', 'sit_to_lie', 'lie_to_sit', 'stand_to_lie', 'lie_to_stand']
         sampling_rate = 50
         has_null = True
-    elif dataset == 'rwhar' or dataset == 'rwhar_3sbjs':
+    elif dataset == 'rwhar':
         class_names = ['climbing_down', 'climbing_up', 'jumping', 'lying', 'running', 'sitting', 'standing', 'walking']
         sampling_rate = 50
         has_null = False
@@ -65,7 +65,7 @@ def load_dataset(dataset, pred_type='actions', include_null=False):
         class_names = ['biking', 'sitting', 'standing', 'walking', 'stair up', 'stair down']
         sampling_rate = 100
         has_null = True
-    elif dataset == 'opportunity' or dataset == 'opportunity_full' or 'opportunity_adl' or 'opportunity_drill':
+    elif dataset == 'opportunity' or dataset == 'opportunity_full' or dataset == 'opportunity_adl' or dataset == 'opportunity_drill':
         sampling_rate = 30
         has_null = True
         if pred_type == 'gestures':
@@ -215,7 +215,7 @@ def adjust_labels(data_y, dataset, pred_type='actions'):
         data_y[data_y == 'walk'] = 4
         data_y[data_y == 'stairsup'] = 5
         data_y[data_y == 'stairsdown'] = 6
-    elif dataset == 'opportunity' or 'opportunity_ordonez' or 'opportunity_adl' or 'opportunity_drill':
+    elif dataset == 'opportunity' or dataset == 'opportunity_ordonez' or dataset == 'opportunity_adl' or dataset == 'opportunity_drill':
         if pred_type == 'locomotion':
             data_y[data_y == "stand"] = 1
             data_y[data_y == "walk"] = 2
@@ -240,4 +240,3 @@ def adjust_labels(data_y, dataset, pred_type='actions'):
             data_y[data_y == 'drink_from_cup'] = 16
             data_y[data_y == 'toggle_switch'] = 17
     return data_y
-
