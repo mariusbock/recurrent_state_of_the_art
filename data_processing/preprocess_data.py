@@ -183,9 +183,9 @@ def adjust_labels(data_y, dataset, pred_type='actions'):
             data_y[data_y == "pestling"] = 4
             data_y[data_y == "pipetting"] = 5
             data_y[data_y == "pouring"] = 6
-            data_y[data_y == "pour catalysator"] = 6
-            data_y[data_y == "stirring"] = 7
-            data_y[data_y == "transfer"] = 8
+            data_y[data_y == "pour catalysator"] = 7
+            data_y[data_y == "stirring"] = 8
+            data_y[data_y == "transfer"] = 9
     elif dataset == 'sbhar':
         data_y[data_y == 'walking'] = 1
         data_y[data_y == 'walking_upstairs'] = 2
