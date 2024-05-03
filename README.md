@@ -119,6 +119,7 @@ The results excel sheet (results.xlsx) contains all results mentioned within the
 
 ## Citation
 <a id="cite">Cite this work as: 
+Marius Bock, Alexander Hoelzemann, Michael Moeller, and Kristof Van Laerhoven. 2022. (Re)Current State-of-the-Art in Human Activity Recognition Datasets. In Frontiers in Computer Science. 4:924954. https://doi.org/10.3389/fcomp.2022.924954
 
 ## Dataset References
 <a id="1">[1]</a> 
